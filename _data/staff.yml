@@ -1,30 +1,15 @@
-Instructors:
+Instructor:
     - name: Daehyeok Kim
       email: daehyeok@utexas.edu
       url: https://daehyeok.kim/
       office-hours: Wednesday 4pm - 5pm
-      image: staff/daehyeok.jpg
+      image: staff/daehyeok.png
       location:  GDC 6.824
 
 TAs:
     - name: Donghyun Kim
       email: donghyun@utexas.edu
       url:
-      office-hours: Monday 4pm - 5pm 
-      location:  GDC 1.302 (Desk 1)
+      office-hours: TBD
+      location:  TBD
       image: staff/donghyun.jpg
-
-    - name: Jeongyoon Moon
-      email: jeongyoonm@utexas.edu
-      url:
-      office-hours:  Tuesday 2pm - 3pm
-      location:  GDC 1.302 (Desk 5)
-      image: staff/jeongyoon.jpg
-
-CAs:
-    - name: Eric Xu
-      email: exu@utexas.edu
-      url:
-      office-hours: Thursday 1pm - 2pm
-      location:  GDC 1.302 (Desk 5)
-      image: staff/eric.jpg
