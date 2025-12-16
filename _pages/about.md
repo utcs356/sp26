@@ -1,7 +1,7 @@
 ---
 layout: about
 permalink: /
-title: Welcome to CS 356, Spring 2025 Edition!
+title: Welcome to CS 356, Spring 2026 Edition!
 description: CS 356 Computer Networks - University of Texas at Austin
 logo: 
 news: true
@@ -46,8 +46,8 @@ Throughout the semester, we’ll cover key topics such as:
 
 - **Unique number:** 51085
 - **Time:** Tuesday & Thursday 9:30 AM - 10:45 AM
-- **Location:** RLP 0.102
-- **Discussion:** [Ed](https://edstem.org/us/courses/71813){:target="\_blank"} and [Perusall](https://utexas.instructure.com/courses/1414169/external_tools/118418?display=borderless){:target=:\_blank"}
-- **Recordings:** [Lectures Online](https://utexas.instructure.com/courses/1414169/external_tools/143779?display=borderless){:target="\_blank"}
+- **Location:** ART 1.11
+- **Discussion:** [Ed](https://edstem.org/us/courses/89721){:target="\_blank"}
+- **Recordings:** [Lectures Online](https://utexas.instructure.com/courses/1440674/external_tools/161383?display=borderless){:target="\_blank"}
 
 ***

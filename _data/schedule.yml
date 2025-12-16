@@ -2,7 +2,7 @@
   lecturer:
   title: >
     <strong>Course overview & Introduction</strong>
-  slides: https://drive.google.com/file/d/19f1detF4gjscimAHnDEBEHumOa8SkSHj/view?usp=sharing
+  slides: 
   video:
   notes:
   readings:
@@ -15,7 +15,7 @@
   lecturer:
   title: >
     <strong>Network architecture and performance</strong>
-  slides: https://drive.google.com/file/d/1EH_hbVfrmW8UvZzm1ej-VR3tsr_ZLEIH/view?usp=drive_link
+  slides: 
   video:
   notes:
   readings:
@@ -28,7 +28,7 @@
   title: >
     <strong>Socket API</strong>
   recitation:
-  slides: https://drive.google.com/file/d/1EUwLstk0ZFrouMEJiqoHskqCAS-i2BcD/view?usp=drive_link
+  slides: 
   notes:
   video:
   readings:
@@ -42,7 +42,7 @@
   title: >
     <strong>Data Link Layer</strong>
   recitation:
-  slides: https://drive.google.com/file/d/15lAcwiWzIULGmbHjP8b50AiqBRrj_WAv/view?usp=drive_link
+  slides:
   notes:
   video:
   readings:
@@ -58,7 +58,7 @@
   title: >
     <strong>Switched LAN</strong>
   recitation:
-  slides: https://drive.google.com/file/d/16SLd50yDh-G_VPSWV0WgE0ixB6PUowAw/view?usp=drive_link
+  slides: 
   notes:
   video:
   readings:
@@ -71,7 +71,7 @@
   title: >
     <strong>Wireless LAN</strong>
   recitation:
-  slides: https://drive.google.com/file/d/16Y5PTuj4UlUgnfzxuJg2e6Wl0fPrnkoo/view?usp=drive_link
+  slides: 
   notes:
   video:
   readings:
@@ -84,7 +84,7 @@
   title: >
     <strong>Programming switches</strong>
   recitation:
-  slides: https://drive.google.com/file/d/16yRdnd97bhgVGXNHuGJxlB4GVyeIpCaS/view?usp=drive_link
+  slides: 
   notes:
   video:
   readings:
@@ -99,7 +99,7 @@
   title: >
     <strong>Quiz 1 Review</strong>
   recitation:
-  slides: https://drive.google.com/file/d/17hCpkSXT7MnsZv4cBBrgSvxxrG8HbO7m/view?usp=drive_link
+  slides: 
   notes:
   video:
   readings:
@@ -115,7 +115,7 @@
   title: >
     <strong>Network layer: Internet protocol</strong>
   recitation:
-  slides: https://drive.google.com/file/d/186rMwgyrOVbVmRz8YbteNYUUcZgSUm5Y/view?usp=drive_link
+  slides: 
   notes:
   video:
   readings:
@@ -128,7 +128,7 @@
   title: >
     <strong>IP (cont'd) & Intra-domain routing</strong>
   recitation:
-  slides: https://drive.google.com/file/d/1Fh8dwhnYPV4g1a11y5APPEmbSi4MJ6mw/view?usp=drive_link
+  slides: 
   notes:
   video:
   readings:
@@ -141,7 +141,7 @@
   title: >
     <strong>Intra-domain routing (cont'd)</strong>
   recitation:
-  slides: https://drive.google.com/file/d/18GV-PFZ_FY2-McY1leg5BHU8_ML4czEm/view?usp=drive_link
+  slides: 
   notes:
   video:
   readings:
@@ -154,7 +154,7 @@
   title: >
     <strong>Inter-domain routing & Border Gateway Protocol (BGP)</strong>
   recitation:
-  slides: https://drive.google.com/file/d/1FkDJ685QTWHL3NMUAzKK9CWLazsIzUPT/view?usp=drive_link
+  slides: 
   notes:
   video:
   readings:
@@ -167,7 +167,7 @@
   title: >
     <strong>BGP (Cont'd)</strong>
   recitation:
-  slides: https://drive.google.com/file/d/18ks5dm9XMEH1MQuNtE6NLi1reBeST-Ei/view?usp=drive_link
+  slides: 
   notes:
   video:
   readings:
@@ -182,7 +182,7 @@
   title: >
     <strong>Transport layer overview</strong>
   recitation:
-  slides: https://drive.google.com/file/d/18s80hn-2Vmb1z2GqY14BBg_5mOU_q-4Z/view?usp=drive_link
+  slides:
   notes:
   video:
   readings:
@@ -195,7 +195,7 @@
   title: >
     <strong>TCP Basics</strong>
   recitation:
-  slides: https://drive.google.com/file/d/1G3qCg1K-yRtH9xKgOg9K5e5dGRwTb1RD/view?usp=drive_link
+  slides: 
   notes:
   video:
   readings:
@@ -208,7 +208,7 @@
   title: >
     <strong>Quiz 2 Review</strong>
   recitation:
-  slides: https://drive.google.com/file/d/1G8tTFzmSJEAQ4QLyI626bLPAOuBl2u09/view?usp=drive_link
+  slides: 
   notes:
   video:
   readings:
@@ -240,7 +240,7 @@
   title: >
     <strong>Flow and congestion control</strong>
   recitation:
-  slides: https://drive.google.com/file/d/19InYNzmNO57-DYTPzveaOPi5EnujVR8A/view?usp=drive_link
+  slides: 
   notes:
   video:
   readings:
@@ -253,7 +253,7 @@
   title: >
     <strong>Congestion control (Cont'd)</strong>
   recitation:
-  slides: https://drive.google.com/file/d/19SXu5iRFVA6xNgSoO83_pRZMg3mstiSm/view?usp=drive_link
+  slides: 
   notes:
   video:
   readings:
@@ -266,7 +266,7 @@
   title: >
     <strong>Router-based resource allocation</strong>
   recitation:
-  slides: https://drive.google.com/file/d/1Gc2QEU0p1r2FkP0UQE1OYmRjaoNoCfdQ/view?usp=drive_link
+  slides: 
   notes:
   video:
   readings:
@@ -279,7 +279,7 @@
   title: >
     <strong>Domain name system (DNS)</strong>
   recitation:
-  slides: https://drive.google.com/file/d/19T4nPOw3yCObgJwunDdHneE5pL8wy0rL/view?usp=drive_link
+  slides: 
   notes:
   video:
   readings:
@@ -292,7 +292,7 @@
   title: >
     <strong>Web and Email</strong>
   recitation:
-  slides: https://drive.google.com/file/d/1GghVosiUIYIHv-YCdOyoaMsSqmBH7E4c/view?usp=drive_link
+  slides: 
   notes:
   video:
   readings:
@@ -307,7 +307,7 @@
   title: >
     <strong>Content distribution network (CDN)</strong>
   recitation:
-  slides: https://drive.google.com/file/d/1GmjParKVr0kyac83KZfPxrn0V2yWaJ7i/view?usp=drive_link
+  slides: 
   notes:
   video:
   readings:
@@ -320,7 +320,7 @@
   title: >
     <strong>Network security (1)</strong>
   recitation:
-  slides: https://drive.google.com/file/d/19wJHRjXaFphawC0eA3yA9yH93W6DMWyp/view?usp=drive_link
+  slides: 
   notes:
   video:
   readings:
@@ -333,7 +333,7 @@
   title: >
     <strong>Network security (2)</strong>
   recitation:
-  slides: https://drive.google.com/file/d/1GoB2thalgXteRBvrxtpgwSM2HF8mXcUR/view?usp=drive_link
+  slides: 
   notes:
   video:
   readings:
@@ -344,18 +344,18 @@
 - date: T 04/22
   lecturer:
   title: >
-    <strong>Machine learning for networking and Wrap-up</strong>
+    <strong></strong>
   recitation:
-  slides: https://drive.google.com/file/d/1A_Fa56UkhOuKts_-6WIJ_TaM2rh12vDZ/view?usp=drive_link
+  slides: 
   notes:
   video:
   readings:
-  - Papers mentioned in the slide
+
   logistics:
 
 - date: Th 04/24
   lecturer:
   quiz: >
-    <strong>Quiz 3 (UTC 4.102)</strong>
+    <strong>Quiz 3</strong>
   logistics:
   - Assignment 5 is due
