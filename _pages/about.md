@@ -45,7 +45,7 @@ Throughout the semester, we'll cover key topics such as:
 
 ***
 
-- **Unique number:** 51085
+- **Unique number:** 53310
 - **Time:** Tuesday & Thursday 9:30 AM - 10:45 AM
 - **Location:** ART 1.11
 - **Discussion:** [Ed](https://edstem.org/us/courses/89721){:target="\_blank"}
