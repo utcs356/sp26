@@ -4,7 +4,7 @@ permalink: /assignments/assignment0
 title: "Assignment 0: Cloudlab and Kathara"
 ---
 
-#### **Released:** 01/14/2025 <br/> **Due:**	01/23/2025
+#### **Released:** 01/13/2026 <br/> **Due:** 01/22/2026
 {: .no_toc}
 
 * (The list will be replaced with the table of contents.)
