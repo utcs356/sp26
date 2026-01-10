@@ -30,6 +30,6 @@
 
 - release_date: 04/07/2026
   due_date: 04/23/2026
-  number: 5
+  number: 5s
   title: >
     Supporting ARP and ICMP in the Router
