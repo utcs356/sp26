@@ -51,12 +51,20 @@ enable_katex:       true
 # -----------------------------------------------------------------------------
 collections:
   announcements:
-    defaults:
-      layout: post
     output: true
     permalink: /announcements/:path/
 
 announcements_limit: 5
+
+# -----------------------------------------------------------------------------
+# Defaults
+# -----------------------------------------------------------------------------
+defaults:
+  - scope:
+      path: ""
+      type: "announcements"
+    values:
+      layout: "post"
 
 # -----------------------------------------------------------------------------
 # Jekyll settings
