@@ -18,11 +18,17 @@ title: Logistics
 
 ### Office hours
 
-The instructor and TA/UGCA will hold regular office hours to support your learning. We are happy to assist with questions about course material, projects, or any related concerns. To ensure office hours are productive and fair for everyone, please follow these guidelines:
+The instructor and TA will hold regular office hours to support your learning.
+We are happy to assist with questions about course material, projects, or any related concerns.
+To ensure office hours are productive and fair for everyone, please follow these guidelines:
 
-* **Come Prepared**: Before attending office hours, make a genuine effort to solve the problem on your own. If your question is about a project, ensure you have thoroughly read the project description and attempted an implementation. Please note that the instructor and TA/UGCA will not write code for you during office hours but will help guide you toward a solution.
+* **Come Prepared**: Before attending office hours, make a genuine effort to solve the problem on your own.
+If your question is about a project, ensure you have thoroughly read the project description and attempted an implementation.
+Please note that the instructor and TA will not write code for you during office hours but will help guide you toward a solution.
 
-* **Respect the Queue**: Office hours will operate on a queue system. Each student will have a maximum of 10 minutes per turn. If you need additional help, you are welcome to rejoin the queue after your turn.
+* **Respect the Queue**: Office hours will operate on a queue system.
+Each student will have a maximum of 10 minutes per turn.
+If you need additional help, you are welcome to rejoin the queue after your turn.
 
 These policies are in place to maximize the effectiveness of office hours and ensure that all students have an opportunity to receive support.
 
@@ -30,9 +36,10 @@ These policies are in place to maximize the effectiveness of office hours and en
 
 ### Grading
 
-* **Quizzes (30%)**:  Three in-class quizzes will be conducted throughout the semester.
+* **Exams (40%)**: Midterm and final exams will be conducted throughout the semester.
 * **Programming assignments (60%)**: Six programming assignments will reinforce key course concepts.
-* **Class participation (10%)**: Active participation includes attending class, asking questions, engaging in discussions, and answering pop-up quizzes.
+* **Class participation (2% bonus)**: Active participation includes attending class, asking questions, and engaging in discussions.
+* **Course evaluation (1% bonus)**: Completing the course evaluation at the end of the semester.
 * Grades will be uploaded to [Canvas](https://utexas.instructure.com/courses/1414169).
 
 **Important Notes**:
@@ -43,7 +50,7 @@ Please ensure you understand the grading scheme and plan your work accordingly t
 
 #### Letter grade assignments
 
-* 100-94%: A
+* 100+-94%: A
 * 93.99-90%: A-
 * 89.99-87%: B+
 * 86.99-84%: B
@@ -60,32 +67,35 @@ Please ensure you understand the grading scheme and plan your work accordingly t
 
 ### Programming Assignments
 
-This course will be highly hands-on, with five programming assignments designed to reinforce key concepts. Below are the key policies regarding these assignments:
-* **Group Work**: Programming assignments are generally completed in groups of **one or two students**. You are responsible for selecting your group members, and the Ed Discussion platform can be used to find partners if needed.
-  * You may switch group members between assignments, but **please consult the instructor in advance** by sending a private message via Ed.
-  * Working individually on a project requires **prior approval** from the instructor.
+This course will be highly hands-on, with six programming assignments designed to reinforce key concepts.
+Below are the key policies regarding these assignments:
+* **Individual Work**: This semester, all programming assignments are to be completed individually.
 * **Deadlines and Late Submissions**: Each assignment will be due approximately **2–3 weeks** after it is assigned.
-  * Starting early significantly improves your chances of success.
+  * Starting early improves your chances of success.
   * Assignments submitted after the deadline will incur a **10% penalty** per day unless prior arrangements are made with the instructor due to **extenuating circumstances**.
-* **Academic Integrity**: All submitted **code and results must be the original work of your group**. Cheating and plagiarism will **not be tolerated** and will be handled according to the [University of Texas policies and procedures](https://deanofstudents.utexas.edu/conduct/index.php).
+* **Academic Integrity**: All submitted code and results must be your original work.
+Cheating and plagiarism will not be tolerated and will be handled according to the [University of Texas policies and procedures](https://deanofstudents.utexas.edu/conduct/index.php).
 
 Adhering to these guidelines ensures a fair and productive learning environment for everyone.
 
 
 ***  
 
-### Quizzes
+### Exams
 
-There will be three in-class quizzes conducted on Canvas, so please bring your laptop to class on quiz days.
+There will be a midterm exam and a final exam conducted on Canvas, so please bring your laptop to class on exam days.
 
-* **Format**: Quizzes will be closed-book and closed-notes. They will consist of multiple-choice and short-answer questions.
-* **Content**: Each quiz will cover material discussed in the lectures leading up to the quiz.
-* **Grading**: All quizzes will contribute equally to your overall quiz grade.
+* **Format**: Exams will be closed-book and closed-notes.
+They will consist of multiple-choice and short-answer questions.
+* **Content**: The midterm exam will cover material discussed in the lectures leading up to the exam.
+The final exam will be cumulative.
+* **Grading**: The midterm and final exams will contribute equally to your overall exam grade.
 
-If you anticipate a conflict with a quiz date, please notify the instructor **at least two weeks in advance**.
-**Makeup quizzes** will only be offered in cases of valid, documented excuses (e.g., medical emergencies, family emergencies). Please provide appropriate documentation to the instructor as soon as possible.
+If you anticipate a conflict with an exam date, please notify the instructor **at least two weeks in advance**.
+**Makeup exams** will only be offered in cases of valid, documented excuses (e.g., medical emergencies, family emergencies).
+Please provide appropriate documentation to the instructor as soon as possible.
 
-Make sure to stay up-to-date with the lecture material and come prepared for each quiz.
+Make sure to stay up-to-date with the lecture material and come prepared for each exam.
 
 ***
 
@@ -98,7 +108,8 @@ All submitted course materials (reading responses, project reports, and presenta
 
 **Excused Absences and Late Submissions**
 
-If you need to miss a class or a response deadline, you should contact me as soon as possible, preferably at least one week in advance (except for emergencies). We will collaborate to ensure your class participation and reading response grades are not affected.
+If you need to miss a class or an assignment deadline, you should contact me as soon as possible, preferably at least one week in advance (except for emergencies).
+We will collaborate to ensure your class participation grades are not affected.
 
 **Services for Students with Disabilities**
 
