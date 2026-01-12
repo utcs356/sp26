@@ -11,7 +11,7 @@ title: Logistics
 
 ### Communication
 
-We will use [Ed](https://edstem.org/us/courses/7502152) for all course announcements, general questions, assignment clarifications, student discussions, and course-related communication.
+We will use [Ed](https://edstem.org/us/courses/89721) for all course announcements, general questions, assignment clarifications, student discussions, and course-related communication.
 
 
 ***
