@@ -11,7 +11,7 @@ title: Logistics
 
 ### Communication
 
-[Ed](https://edstem.org/us/courses/71813) is intended for all announcements, general questions about the course, clarifications about assignments, student questions to each other, discussions about the material, and so on.
+[Ed](https://edstem.org/us/courses/7502152) is intended for all announcements, general questions about the course, clarifications about assignments, student questions to each other, discussions about the material, and so on.
 
 
 ***
