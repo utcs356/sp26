@@ -1,9 +1,9 @@
 ---
 layout: page
 permalink: /assignments/assignment5
-title: "Assignment 5: Hierarchical DNS"
+title: "Assignment 2: Hierarchical DNS"
 ---
-#### **Released:** 04/08/2025 <br/> **Due:**	04/24/2025
+#### **Released:** 02/03/2026 <br/> **Due:** 02/12/2026
 * (The list will be replaced with the table of contents.)
 {:toc}
 

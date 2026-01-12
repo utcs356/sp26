@@ -16,20 +16,20 @@
   title: >
     Hierarchical DNS
 
-- release_date: 02/12/2025
-  due_date: 03/10/2025
+- release_date: 02/12/2026
+  due_date: 03/10/2026
   number: 3
   title: >
     Reliable Transport Protocol and Congestion Control
 
-- release_date: 02/05/2025
-  due_date: 02/27/2025
+- release_date: 03/10/2026
+  due_date: 03/31/2026
   number: 4
   title: >
     Software Switch and Router with P4
 
-- release_date: 02/27/2025
-  due_date: 03/13/2025
+- release_date: 04/07/2026
+  due_date: 04/23/2026
   number: 5
   title: >
-    Supporting ARP, ICMP, RIP in the Router
+    Supporting ARP and ICMP in the Router

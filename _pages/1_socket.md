@@ -3,7 +3,7 @@ layout: page
 permalink: /assignments/assignment1
 title: "Assignment 1: Socket Programming and Measurement"
 ---
-#### **Released:** 01/23/2024 <br/> **Due:**	02/04/2024
+#### **Released:** 01/22/2026 <br/> **Due:** 02/03/2026
 {: .no_toc}
 
 * (The list will be replaced with the table of contents.)

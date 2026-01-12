@@ -1,10 +1,10 @@
 ---
 layout: page
 permalink: /assignments/assignment2
-title: "Assignment 2: Software Switch and Router with P4"
+title: "Assignment 4: Software Switch and Router with P4"
 ---
 
-#### **Released:** 02/04/2025 <br/> **Due:**	02/27/2025
+#### **Released:** 03/10/2026 <br/> **Due:** 03/31/2026
 {: .no_toc}
 
 * (The list will be replaced with the table of contents.)

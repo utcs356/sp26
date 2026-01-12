@@ -26,16 +26,17 @@ No required textbook, but the following resources are highly recommended for fur
 Relevant chapters will be highlighted in the course schedule.
 
 ### Topics covered
-Throughout the semester, we’ll cover key topics such as:
+Throughout the semester, we'll cover key topics such as:
 
-* Physical and data link layer protocols
-* Naming and addressing
-* Internet routing
-* Transport layer protocols
-* Network resource management
-* Applications (HTTP, DNS, etc.)
-* Content distribution networks
-* Peer-to-peer networks 
+* Network layers and programming
+* Application layer protocols (HTTP, DNS, CDN)
+* Transport layer protocols (TCP, flow and congestion control)
+* Network layer and Internet Protocol (IP)
+* Routing protocols (intra-domain and inter-domain, BGP)
+* Data link layer and switched LAN
+* Software-defined networking and programmable switches
+* Data center networks
+* Wireless networks
 * Network security
 
 ### Prerequisites
@@ -44,7 +45,7 @@ Throughout the semester, we’ll cover key topics such as:
 
 ***
 
-- **Unique number:** 51085
+- **Unique number:** 53310
 - **Time:** Tuesday & Thursday 9:30 AM - 10:45 AM
 - **Location:** ART 1.11
 - **Discussion:** [Ed](https://edstem.org/us/courses/89721){:target="\_blank"}

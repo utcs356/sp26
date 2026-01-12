@@ -11,107 +11,153 @@ title: Logistics
 
 ### Communication
 
-[Ed](https://edstem.org/us/courses/7502152) is intended for all announcements, general questions about the course, clarifications about assignments, student questions to each other, discussions about the material, and so on.
+We will use [Ed](https://edstem.org/us/courses/7502152) for all course announcements, general questions, assignment clarifications, student discussions, and course-related communication.
 
 
 ***
 
-### Office hours
+### Office Hours
 
-The instructor and TA/UGCA will hold regular office hours to support your learning. We are happy to assist with questions about course material, projects, or any related concerns. To ensure office hours are productive and fair for everyone, please follow these guidelines:
+The instructor and TA will hold regular office hours to assist with course material, projects, and any related concerns.
+To ensure office hours are productive and fair for all students, please follow these guidelines:
 
-* **Come Prepared**: Before attending office hours, make a genuine effort to solve the problem on your own. If your question is about a project, ensure you have thoroughly read the project description and attempted an implementation. Please note that the instructor and TA/UGCA will not write code for you during office hours but will help guide you toward a solution.
+* **Come Prepared**: Make a genuine effort to solve problems on your own before attending office hours.
+For project-related questions, thoroughly read the assignment description and attempt an implementation first.
+Note that instructors will guide you toward solutions but will not write code for you.
 
-* **Respect the Queue**: Office hours will operate on a queue system. Each student will have a maximum of 10 minutes per turn. If you need additional help, you are welcome to rejoin the queue after your turn.
+* **Respect the Queue**: Office hours operate on a queue system with a 10-minute limit per student.
+You are welcome to rejoin the queue if you need additional help.
 
-These policies are in place to maximize the effectiveness of office hours and ensure that all students have an opportunity to receive support.
+These policies ensure that all students have equal opportunity to receive support.
 
 ***
 
 ### Grading
 
-* **Quizzes (30%)**:  Three in-class quizzes will be conducted throughout the semester.
-* **Programming assignments (60%)**: Six programming assignments will reinforce key course concepts.
-* **Class participation (10%)**: Active participation includes attending class, asking questions, engaging in discussions, and answering pop-up quizzes.
-* Grades will be uploaded to [Canvas](https://utexas.instructure.com/courses/1414169).
+Your final grade will be based on the following components:
+
+* **Exams (40%)**: One midterm exam and one final exam.
+* **Programming Assignments (60%)**: Six programming assignments to reinforce key concepts.
+* **Class Participation (2% bonus)**: Active participation in class, including asking questions and engaging in discussions.
+* **Course Evaluation (1% bonus)**: Completing the end-of-semester course evaluation.
+
+Grades will be posted on [Canvas](https://utexas.instructure.com/courses/1414169).
 
 **Important Notes**:
-* There will be no extra credit opportunities at the end of the semester.
-* Grades will not be adjusted based on individual circumstances.
+* There will be no extra credit opportunities offered at the end of the semester.
+* Grades will not be curved or adjusted based on individual circumstances.
 
-Please ensure you understand the grading scheme and plan your work accordingly to meet course expectations.
+Plan your work accordingly to meet course expectations.
 
-#### Letter grade assignments
+#### Letter Grade Scale
 
-* 100-94%: A
-* 93.99-90%: A-
-* 89.99-87%: B+
-* 86.99-84%: B
-* 83.99-80%: B-
-* 79.99-77%: C+
-* 76.99-74%: C
-* 73.99-70%: C-
-* 69.99-67%: D+
-* 66.99-64%: D
-* 63.99-61%: D-
-* 60-0%: F
+| Range | Grade |
+|-------|-------|
+| 94-100% | A |
+| 90-93.99% | A- |
+| 87-89.99% | B+ |
+| 84-86.99% | B |
+| 80-83.99% | B- |
+| 77-79.99% | C+ |
+| 74-76.99% | C |
+| 70-73.99% | C- |
+| 67-69.99% | D+ |
+| 64-66.99% | D |
+| 61-63.99% | D- |
+| 0-60% | F |
 
 ***
 
 ### Programming Assignments
 
-This course will be highly hands-on, with five programming assignments designed to reinforce key concepts. Below are the key policies regarding these assignments:
-* **Group Work**: Programming assignments are generally completed in groups of **one or two students**. You are responsible for selecting your group members, and the Ed Discussion platform can be used to find partners if needed.
-  * You may switch group members between assignments, but **please consult the instructor in advance** by sending a private message via Ed.
-  * Working individually on a project requires **prior approval** from the instructor.
-* **Deadlines and Late Submissions**: Each assignment will be due approximately **2–3 weeks** after it is assigned.
-  * Starting early significantly improves your chances of success.
-  * Assignments submitted after the deadline will incur a **10% penalty** per day unless prior arrangements are made with the instructor due to **extenuating circumstances**.
-* **Academic Integrity**: All submitted **code and results must be the original work of your group**. Cheating and plagiarism will **not be tolerated** and will be handled according to the [University of Texas policies and procedures](https://deanofstudents.utexas.edu/conduct/index.php).
+This course includes six hands-on programming assignments designed to reinforce key concepts.
+The following policies apply:
 
-Adhering to these guidelines ensures a fair and productive learning environment for everyone.
+#### Individual Work
+All programming assignments must be completed individually.
+Collaboration with other students on assignment code is not permitted.
+
+#### Deadlines and Late Submissions
+Each assignment will be due approximately 2-3 weeks after it is released.
+**Starting early significantly improves your chances of success.**
+
+**Late submissions will incur a 10% penalty per day** (including weekends).
+
+**Exception requests for late submissions must follow these strict guidelines:**
+* **Planned absences or conflicts**: Contact the instructor **at least two weeks in advance**.
+* **Emergencies** (medical, family, etc.): Contact the instructor **immediately when the emergency occurs**.
+* **Requests made after the deadline or after the event has occurred will NOT be accepted.**
+
+This policy ensures fairness and allows the instructor to make appropriate arrangements in advance.
+If you anticipate any conflicts with assignment deadlines, reach out proactively.
+
+#### Academic Integrity
+All submitted code and results must be your original work.
+Cheating and plagiarism will not be tolerated and will be handled according to the [University of Texas policies and procedures](https://deanofstudents.utexas.edu/conduct/index.php).
 
 
 ***  
 
-### Quizzes
+### Exams
 
-There will be three in-class quizzes conducted on Canvas, so please bring your laptop to class on quiz days.
+There will be one midterm exam and one final exam, both conducted on Canvas.
+**Bring your laptop to class on exam days.**
 
-* **Format**: Quizzes will be closed-book and closed-notes. They will consist of multiple-choice and short-answer questions.
-* **Content**: Each quiz will cover material discussed in the lectures leading up to the quiz.
-* **Grading**: All quizzes will contribute equally to your overall quiz grade.
+#### Format
+* Exams are **closed-book and closed-notes**.
+* Questions will include multiple-choice and short-answer formats.
 
-If you anticipate a conflict with a quiz date, please notify the instructor **at least two weeks in advance**.
-**Makeup quizzes** will only be offered in cases of valid, documented excuses (e.g., medical emergencies, family emergencies). Please provide appropriate documentation to the instructor as soon as possible.
+#### Content
+* **Midterm**: Covers all material from the beginning of the course up to the midterm date.
+* **Final**: Cumulative, covering all course material.
 
-Make sure to stay up-to-date with the lecture material and come prepared for each quiz.
+#### Grading
+Both exams contribute equally to your overall exam grade (20% each).
+
+#### Makeup Exams
+**If you anticipate a conflict with an exam date, you must notify the instructor at least two weeks in advance.**
+
+Makeup exams will only be offered for valid, documented excuses (e.g., medical emergencies, family emergencies).
+For emergencies, contact the instructor immediately and provide appropriate documentation as soon as possible.
+
+**Requests made after the exam date will NOT be accepted.**
 
 ***
 
 ### Course Policies
 
+#### Academic Integrity
 
-**Academic Integrity**
+All submitted course materials must be your original work.
+When using external sources, provide proper citations and clearly indicate which parts are your own work.
+If you have any doubts about whether something violates this policy, consult the instructor before submission.
 
-All submitted course materials (reading responses, project reports, and presentation materials) must be your original work. When using someone else's material, proper citation and clarification regarding which parts are your own work are required. If you have any doubts about whether something you intend to submit violates this policy, please consult the instructor beforehand.
+Violations of academic integrity will be handled according to the [University of Texas policies and procedures](https://deanofstudents.utexas.edu/conduct/index.php).
 
-**Excused Absences and Late Submissions**
+#### Attendance and Participation
 
-If you need to miss a class or a response deadline, you should contact me as soon as possible, preferably at least one week in advance (except for emergencies). We will collaborate to ensure your class participation and reading response grades are not affected.
+Regular class attendance is expected and contributes to your learning and participation grade.
+If you must miss class for planned reasons, notify the instructor in advance.
+For emergency absences, contact the instructor as soon as possible.
 
-**Services for Students with Disabilities**
+#### Services for Students with Disabilities
 
-The university is committed to providing an accessible and inclusive learning environment that aligns with university policy and federal and state law. Please inform me if you encounter any learning barriers so we can work together to guarantee you have equal opportunities to fully participate in this course.
+The university is committed to providing an accessible and inclusive learning environment.
+If you encounter any barriers to learning, please inform the instructor so we can work together to ensure you have equal opportunities to participate fully in this course.
 
-If you have a disability or suspect you might have one and need accommodations, please contact Disability and Access (D&A). Visit their website for contact information and more details: [http://diversity.utexas.edu/disability/](http://diversity.utexas.edu/disability/)
+If you have a disability or need accommodations, please contact [Disability and Access (D&A)](http://diversity.utexas.edu/disability/).
+If you are already registered with D&A, provide your Accommodation Letter as early as possible so we can discuss your needs.
 
-If you are already registered with D&A, please provide your Accommodation Letter as early in the semester as possible so we can discuss your approved accommodations and needs in this course.
+#### Sharing of Course Materials
 
-**Sharing of Course Materials**
+**Course materials may not be shared outside the class without written permission from the instructor.**
+This includes lecture materials, assignments, and any student work.
+Unauthorized sharing facilitates cheating and violates university policy.
 
-Sharing course materials produced by the instructor or students online or with anyone outside of the class is prohibited without written permission from me. Unauthorized sharing of materials can facilitate cheating. The university monitors websites used for sharing materials, and any materials found online that are associated with you or any suspected unauthorized sharing of materials will be reported to Student Conduct and Academic Integrity in the Office of the Dean of Students. These reports can initiate the student conduct process, including charges for academic misconduct, which could potentially result in sanctions, including a grade impact.
+The university monitors websites for shared materials.
+Any materials associated with you will be reported to Student Conduct and Academic Integrity, which may result in academic misconduct charges and sanctions.
 
-**Changes to the Syllabus**
+#### Syllabus Changes
 
-I reserve the right to modify this syllabus during the semester. Any changes will be announced in class and reflected on the course website.
+The instructor reserves the right to modify this syllabus during the semester.
+Any changes will be announced in class and updated on the course website.

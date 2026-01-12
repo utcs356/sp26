@@ -9,7 +9,14 @@ Instructors:
 TAs:
     - name: Donghyun Kim
       email: donghyun@utexas.edu
-      url:
-      office-hours: TBD
-      location:  TBD
+      url: https://donghyun-kim.com/
+      office-hours: Tuesday 4pm - 5pm
+      location: TA Station, Desk 4
       image: staff/donghyun.jpg
+
+    - name: Geon-Woo Kim
+      email: gwkim@utexas.edu
+      url: https://gwsshs22.github.io/
+      office-hours: Thursday 4pm - 5pm
+      location:  TA Station, Desk 4
+      image: staff/geonwoo.jpg

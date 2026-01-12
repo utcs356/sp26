@@ -1,9 +1,9 @@
 ---
 layout: page
 permalink: /assignments/assignment4
-title: "Assignment 4: Reliable Transport Protocol and Congestion Control"
+title: "Assignment 3: Reliable Transport Protocol and Congestion Control"
 ---
-#### **Released:** 03/13/2025 <br/> **Due:**	04/08/2025
+#### **Released:** 02/12/2026 <br/> **Due:** 03/10/2026
 {: .no_toc}
 * (The list will be replaced with the table of contents.)
 {:toc}
