@@ -1,6 +1,6 @@
 ---
 layout: page
-permalink: /assignments/assignment2
+permalink: /assignments/assignment4
 title: "Assignment 4: Software Switch and Router with P4"
 ---
 
@@ -42,7 +42,7 @@ Your task is to complete `l2_basic_forwarding.p4` and `controller.py` to make th
     * P4 task: Complete the definition of `header ethernet_t`.
         <details>
         <summary markdown="span">Task specificaiton</summary>
-        
+
         * The parser is already implemented, and your job is to define an ethernet header format, `header ethernet_t`.
         * You don't have to include a 64-bit preamble to the header format definition as it's part of physical layer.
         </details>

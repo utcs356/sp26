@@ -1,6 +1,6 @@
 ---
 layout: page
-permalink: /assignments/assignment5
+permalink: /assignments/assignment2
 title: "Assignment 2: Hierarchical DNS"
 ---
 #### **Released:** 02/03/2026 <br/> **Due:** 02/12/2026
@@ -14,14 +14,14 @@ Please use the `cs356-base` profile on CloudLab to implement and test your code.
 #### Overview
 In this assignment, you will implement DNS servers that enable a client to access nodes with domains instead of raw IP addresses. Your task is implementing DNS nameservers for the `utexas.edu` zone and `cs.utexas.edu` zone (Part 1) and a local DNS server that can handle the query iteratively (Part 2). We provide you with a DNS library that does tedious jobs like message parsing for you. Refer to the Appendix for more details on the library. For simplicity, you may assume that incoming queries only request `A, AAAA, NS` records.
 
-You will run this experiment on top of Kathara. The Kathara topology is depicted below. The Kathara lab is located in the `[a5_directory]/labs/dns`.    
-![a5_topology]({{site.baseurl}}/assets/img/assignments/assignment5/A5_topology.png)   
+You will run this experiment on top of Kathara. The Kathara topology is depicted below. The Kathara lab is located in the `[a5_directory]/labs/dns`.
+![a5_topology]({{site.baseurl}}/assets/img/assignments/assignment5/A5_topology.png)
 
 ### Part 1: Writing DNS servers
 Your task is to complete `ut-dns.c` and `cs-dns.c` in the `[a5_directory]/labs/dns/shared/src` directory. `ut-dns.c` and `cs-dns.c` are the nameservers for `utexas.edu` and `cs.utexas.edu`, respectively. The implementation of the two servers should be almost the same except for the DNS records they store. We recommend you implement `ut-dns.c` first, copy and paste it to `cs-dns.c`, and change it a bit. Note that they are **NOT** recursive nor iterative DNS servers, so their responses are only based on their own DNS records.
 
-The overview for this part of the assignment is depicted below.    
-![a5_p1]({{site.baseurl}}/assets/img/assignments/assignment5/A5_P1.png)   
+The overview for this part of the assignment is depicted below.
+![a5_p1]({{site.baseurl}}/assets/img/assignments/assignment5/A5_P1.png)
 
 #### Specification
 You can find the step-by-step specifications in the starter codes as well.
@@ -33,41 +33,41 @@ You can find the step-by-step specifications in the starter codes as well.
 
 #### Test your implementation
 1. Compile your code with `$ make` in the lab's shared directory (`[a5_directory]/labs/dns/shared`). The compiled binary would be in the `[a5_directory]/labs/dns/shared/bin` directory.
-2. Run a server on the corresponding Kathara node. Make sure to start an experiment with `$ kathara lstart`.   
+2. Run a server on the corresponding Kathara node. Make sure to start an experiment with `$ kathara lstart`.
     <details>
-    <summary markdown="span"> Testing `ut-dns.c` </summary>  
-    
-    `$ kathara connect ut_dns`      
-    `$ ./shared/bin/ut-dns`    
+    <summary markdown="span"> Testing `ut-dns.c` </summary>
+
+    `$ kathara connect ut_dns`
+    `$ ./shared/bin/ut-dns`
     </details>
     <details>
-    <summary markdown="span"> Testing `cs-dns.c` </summary>    
+    <summary markdown="span"> Testing `cs-dns.c` </summary>
 
-    `$ kathara connect cs_dns`   
-    `$ ./shared/bin/cs-dns`  
+    `$ kathara connect cs_dns`
+    `$ ./shared/bin/cs-dns`
     </details>
 3. Send `A` queries and check the response with `$ dig` on `h1`. Make sure to run `$ kathara connect h1`.
     <details>
-    <summary markdown="span"> Testing `ut-dns.c` </summary> 
+    <summary markdown="span"> Testing `ut-dns.c` </summary>
 
-    `$ dig @40.0.0.20 A www.utexas.edu`      
-    `$ dig @40.0.0.20 A thisshouldfail.utexas.edu`     
-    `$ dig @40.0.0.20 A cs.utexas.edu`     
-    `$ dig @40.0.0.20 A aquila.cs.utexas.edu`  
+    `$ dig @40.0.0.20 A www.utexas.edu`
+    `$ dig @40.0.0.20 A thisshouldfail.utexas.edu`
+    `$ dig @40.0.0.20 A cs.utexas.edu`
+    `$ dig @40.0.0.20 A aquila.cs.utexas.edu`
     </details>
-    
+
     <details>
-    <summary markdown="span"> Testing `cs-dns.c` </summary> 
-    
-    `$ dig @50.0.0.30 A cs.utexas.edu`     
-    `$ dig @50.0.0.30 A aquila.cs.utexas.edu`     
-    `$ dig @50.0.0.30 A thisshouldfail.cs.utexas.edu` 
-    </details> 
+    <summary markdown="span"> Testing `cs-dns.c` </summary>
+
+    `$ dig @50.0.0.30 A cs.utexas.edu`
+    `$ dig @50.0.0.30 A aquila.cs.utexas.edu`
+    `$ dig @50.0.0.30 A thisshouldfail.cs.utexas.edu`
+    </details>
 
 ### Part 2: An Iterative Local DNS Server
 Your task is to complete `local-dns.c` in the `[a5_directory]/labs/dns/shared/src` directory. `local-dns.c` is a default nameserver for the on-campus network. Note that it is an iterative DNS server, so its response should always be an answer or an error. If it receives a DNS record that indicates delegation (referral), it should resolve a query iteratively.
-The figure below is an example of an iterative query resolution possible in our setup.     
-![a5_p2]({{site.baseurl}}/assets/img/assignments/assignment5/A5_P2.png)    
+The figure below is an example of an iterative query resolution possible in our setup.
+![a5_p2]({{site.baseurl}}/assets/img/assignments/assignment5/A5_P2.png)
 
 #### Specification
 You can find the step-by-step specifications in the source code as well.
@@ -79,8 +79,8 @@ You can find the step-by-step specifications in the source code as well.
     1. If the record is found and the record indicates delegation, send an iterative query to the corresponding nameserver. Note that the server should store a per-query context using `putAddrQID()` and `putNSQID()` for future response handling.
     2. If the record is found and doesn't indicate delegation, send a response back to the client.
     3. If the record is not found, send a response back to the client (The library would set the error flag).
-* If the received message is a response and 
-    1. If it is an authoritative response (i.e., final response), add the NS information to the response and send it to the original client. Delete a per-query context using `delAddrQID()` and `delNSQID()`. You can retrieve the NS and client address information for the response using `getNSbyQID()` and `getAddrbyQID()`. You can add the NS information to the response using `TDNSPutNStoMessage()`.  
+* If the received message is a response and
+    1. If it is an authoritative response (i.e., final response), add the NS information to the response and send it to the original client. Delete a per-query context using `delAddrQID()` and `delNSQID()`. You can retrieve the NS and client address information for the response using `getNSbyQID()` and `getAddrbyQID()`. You can add the NS information to the response using `TDNSPutNStoMessage()`.
     2. If it is a non-authoritative response (i.e., it indicates delegation), send an iterative query to the corresponding nameserver. You can extract the query from the response using `TDNSGetIterQuery()`. The server should update a per-query context using `putNSQID()`.
 
 ### Test your implementation
@@ -89,47 +89,47 @@ You can find the step-by-step specifications in the source code as well.
     <details>
     <summary markdown="span"> Launch commands </summary>
 
-    * Run a Kathara experiment.  
-    `$ kathara lstart`   
-    * Run the UT nameserver.  
-    `$ kathara connect ut_dns`   
-    `$ ./shared/bin/ut-dns`    
-    * Run the CS nameserver.  
-    `$ kathara connect cs_dns`   
-    `$ ./shared/bin/cs-dns`  
-    * Run the local DNS server.    
-    `$ kathara connect local_dns`    
-    `$ ./shared/bin/local-dns`    
+    * Run a Kathara experiment.
+    `$ kathara lstart`
+    * Run the UT nameserver.
+    `$ kathara connect ut_dns`
+    `$ ./shared/bin/ut-dns`
+    * Run the CS nameserver.
+    `$ kathara connect cs_dns`
+    `$ ./shared/bin/cs-dns`
+    * Run the local DNS server.
+    `$ kathara connect local_dns`
+    `$ ./shared/bin/local-dns`
     </details>
-3. Configure the local DNS server on `h1`.    
-`$ kathara connect h1`         
-`$ echo "nameserver 20.0.0.10" >> /etc/resolv.conf`  
-4. Send A queries and check the responses with `$ dig` on `h1`. 
+3. Configure the local DNS server on `h1`.
+`$ kathara connect h1`
+`$ echo "nameserver 20.0.0.10" >> /etc/resolv.conf`
+4. Send A queries and check the responses with `$ dig` on `h1`.
     <details>
-    <summary markdown="span"> `dig` commands </summary> 
-    
-    `$ dig A ns.utexas.edu`       
-    `$ dig A www.utexas.edu`     
-    `$ dig A abc.utexas.edu`     
-    `$ dig A cs.utexas.edu`      
-    `$ dig A aquila.cs.utexas.edu`    
-    `$ dig A abc.utexas.edu`   
+    <summary markdown="span"> `dig` commands </summary>
+
+    `$ dig A ns.utexas.edu`
+    `$ dig A www.utexas.edu`
+    `$ dig A abc.utexas.edu`
+    `$ dig A cs.utexas.edu`
+    `$ dig A aquila.cs.utexas.edu`
+    `$ dig A abc.utexas.edu`
     </details>
 
-5. Try to use domain names with `$ ping`.    
+5. Try to use domain names with `$ ping`.
     <details>
     <summary markdown="span"> `ping` commands </summary>
 
-    The `-n` flag is necessary since the servers ignore a reverse query (PTR).   
-    `$ ping -n www.utexas.edu`    
-    `$ ping -n aquila.cs.utexas.edu`  
-    </details>  
+    The `-n` flag is necessary since the servers ignore a reverse query (PTR).
+    `$ ping -n www.utexas.edu`
+    `$ ping -n aquila.cs.utexas.edu`
+    </details>
 
 ### Submission
-Please submit your code (modified assignment5 repository) to the Canvas Assignments page in either `tar.gz` or `zip` format.  
+Please submit your code (modified assignment5 repository) to the Canvas Assignments page in either `tar.gz` or `zip` format.
 The naming format for the file is `assign5_groupX.[tar.gz/zip]`.
 
-### Appendix: TDNS Library 
+### Appendix: TDNS Library
 The header file is in `[a5_directory]/labs/dns/shared/src/lib/tdns/tdns-c.h`. For the exact usage, refer to the comments and declarations below.
 
 ```c
@@ -174,7 +174,7 @@ struct TDNSParseResult {
 struct TDNSFindResult {
   char serialized[MAX_RESPONSE]; /* a DNS response string based on the search result */
   ssize_t len; /* the response string's length */
-  
+
   /* Unused, ignore this. */
   const char *delegate_ip;
 };

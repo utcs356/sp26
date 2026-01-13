@@ -1,6 +1,6 @@
 ---
 layout: page
-permalink: /assignments/assignment4
+permalink: /assignments/assignment3
 title: "Assignment 3: Reliable Transport Protocol and Congestion Control"
 ---
 #### **Released:** 02/12/2026 <br/> **Due:** 03/10/2026
@@ -72,8 +72,8 @@ You may modify the skeleton code outside the TODO sections, but do not change th
 
 #### Part1: Connection Establishment and Termination
 
-To enable reliable communication between two entities (`INITIATOR` and `LISTENER`), the connection must first be established. 
-You will implement the **TCP three-way handshake** before data transmission begins. 
+To enable reliable communication between two entities (`INITIATOR` and `LISTENER`), the connection must first be established.
+You will implement the **TCP three-way handshake** before data transmission begins.
 Additionally, you will handle **connection teardown** to safely terminate the connection when no more data needs to be transmitted.
 
 **Three-Way Handshake**
@@ -97,7 +97,7 @@ The connection establishment follows this workflow:
 
 **Connection teardown**
 
-When a socket has finished transmitting data, it calls `ut_close()` to terminate communication. 
+When a socket has finished transmitting data, it calls `ut_close()` to terminate communication.
 Your task is to handle **receiving `FIN` packets** and **sending the corresponding `ACK` packets** as part of the termination process.
 
 Either the **server** or **client** can initiate termination by sending a `FIN` packet when ready. The expected behavior is as follows:
