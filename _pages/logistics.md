@@ -53,7 +53,7 @@ Plan your work accordingly to meet course expectations.
 
 | Range | Grade |
 |-------|-------|
-| 94-100% | A |
+| 94-100+% | A |
 | 90-93.99% | A- |
 | 87-89.99% | B+ |
 | 84-86.99% | B |

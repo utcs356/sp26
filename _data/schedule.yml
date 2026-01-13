@@ -344,7 +344,7 @@
     - K&R 8.1--8.2 
   logistics:
 
-- date: T 04/18
+- date: T 04/21
   lecturer:
   title: >
     <strong>Network Security (2)</strong>
@@ -357,7 +357,13 @@
     - K&R 8.3--8.4 and 8.9
   logistics:
 
-- date: Th 04/22
+- date: Th 04/23
+  lecturer:
+  quiz: >
+    <strong>Final Exam Preparation - No Class</strong>
+  logistics:
+
+- date: T 04/27
   lecturer:
   quiz: >
     <strong>Final Exam</strong>
