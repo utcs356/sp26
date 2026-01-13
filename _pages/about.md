@@ -56,7 +56,7 @@ Throughout the semester, we will cover the following key topics:
 
 - **Unique Number:** 53310
 - **Time:** Tuesday & Thursday, 9:30 AM - 10:45 AM
-- **Location:** ART 1.11
+- **Location:** ART 1.110
 - **Discussion:** [Ed](https://edstem.org/us/courses/89721){:target="\_blank"}
 - **Lecture Recordings:** [Canvas](https://utexas.instructure.com/courses/1440674/external_tools/161383?display=borderless){:target="\_blank"}
 
