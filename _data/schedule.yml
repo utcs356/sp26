@@ -52,20 +52,8 @@
     - Assignment 0 is due
     - Assignment 1 is out  
 
-- date: T 01/27
-  lecturer:
-  title: >
-    <strong>Domain Name System (DNS)</strong>
-  recitation:
-  slides: 
-  notes:
-  video:
-  readings:
-    - P&D 9.3.1
-    - K&R 2.4
-  logistics:
 
-- date: Th 01/29
+- date: T 01/27
   lecturer:
   title: >
     <strong>Content Distribution Network (CDN)</strong>
@@ -76,6 +64,19 @@
   readings:
     - P&D 9.4.3
     - K&R 2.2.5 and 2.6.3
+  logistics:
+
+- date: Th 01/29
+  lecturer:
+  title: >
+    <strong>Domain Name System (DNS)</strong>
+  recitation:
+  slides: 
+  notes:
+  video:
+  readings:
+    - P&D 9.3.1
+    - K&R 2.4
   logistics:
 
 - date: T 02/03
