@@ -282,8 +282,7 @@
   notes:
   video:
   readings:
-    - P&D 2.1 - 2.3
-    - K&R 6.1
+    - K&R 4.4, 5.4, and 5.5
   logistics:
     - Assignment 4 is due
 
@@ -325,8 +324,7 @@
   notes:
   video:
   readings:
-    - P&D 2.7
-    - K&R 7.3
+    - K&R 6.6
   logistics:
 
 - date: T 04/14
