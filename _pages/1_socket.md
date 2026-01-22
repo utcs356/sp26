@@ -127,7 +127,9 @@ In this part of the assignment, you will use the tool you implemented (`iperfer`
 
 **NOTE**: To measure the average RTT (or latency), use `$ ping -c [number_of_pings] [remote_ip_address]`.
 For example, if you want to ping to `h4` 10 times, the command is `$ ping -c 10 30.1.1.7`.
+
 **NOTE**: To measure the bandwidth (or throughput) between two hosts (say `h1` and `h4`), execute `iperfer` as a client mode on one host then execute `iperfer` as a server mode on the other host.
+
 **NOTE**: When you change Kathara startup files (e.g., `r1.startup`), you must stop the running Kathara lab with `$ kathara lclean` before every change.
 
 #### **Q1**: Basic measurements
