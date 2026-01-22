@@ -168,8 +168,16 @@ You must submit:
 * A tarball file of the modified assignment1 directory.
     * `$ tar -zcvf assignment1 assign1_[firstname]_[lastname].tar.gz`
 * A pdf file contains the Part 1 results and the measurement results for Part 2.
-    * Please include your name and EID in the report.
-    * You may use any tool you prefer to create your report (LaTeX, Google Docs, Microsoft Word, etc.), but **you must submit the final report as a PDF file**.
+
+**Report Format**:
+
+* Please include your name and EID in the report.
+* You may use any tool you prefer to create your report (LaTeX, Google Docs, Microsoft Word, etc.), but **you must submit the final report as a PDF file**.
+
+**Report Content**:
+
+* For Part 1, include both screenshots and typed explanations when reporting your measurement results.
+* For Part 2, for each question, provide the measurement results (screenshots and typed text) along with your answers to the corresponding analysis questions.
 
 ### Grading
 * `iperfer.c` implementation
@@ -198,8 +206,10 @@ A Kathara lab is a set of preconfigured (virtual) devices. It is basically a dir
 
 To deploy a virtual network, move to the Kathara lab directory then type `$ kathara lstart`. Then the XTerm terminal connected to each virtual network device would appear. To terminate the deployment, type `$ kathara lclean`. Some useful kathara commands are summarized [here](https://www.kathara.org/man-pages/kathara.1.html).
 
-### FAQ
+### Tips
 
+* **Socket Example**: It might be helpful to review the [socket-example](https://github.com/utcs356/socket-example) implementation to ensure the socket connection is properly established.
 * **Running commands simultaneously**: If you’re concerned about running commands simultaneously, tmux features like `setw synchronize-panes` can help. After typing the commands in each pane, enabling synchronization lets you execute them all at once with a single press of Enter.
 * **Range of Mbps**: In Part 2, the measured throughput is expected to be in the range of several hundred Mbps.
 * **Data Sent/Received Discrepancy**: If you notice mismatches between the amount of data sent and received by the server and client, consider adding the `MSG_WAITALL` flag to the server's `recv` calls. Because TCP does not guarantee that data will be received in the same chunk sizes as it was sent, the flag forces the server to wait until the buffer is fully filled.
+* **Error Handling**: When a function in `handle_client` (e.g., `connect`) returns an error, please handle it properly by cleaning up any allocated resources (e.g., socket file descriptors) and exiting the process with an appropriate error code (e.g., `EXIT_FAILURE`).
