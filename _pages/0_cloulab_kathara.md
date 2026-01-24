@@ -179,6 +179,15 @@ Don't forget to run `$ kathara lclean` in the lab directory when you're done wit
 #### Deliverable
 Submit a report in a pdf file named `assign0_[firstname]_[lastname].pdf`. Make sure to include your name and EID in the report.
 
+**Report Format:**
+* You may use any tool you prefer to create your report (LaTeX, Google Docs, Microsoft Word, etc.), but you **must submit the final report as a PDF file**.
+
+**Report Content:**
+* This assignment is designed to help you get familiar with CloudLab and Kathara. Simply documenting your results is sufficient.
+* For Part 1: Include the resource details (number of physical cores, logical cores, and available memory).
+* For Part 2: Include the IP addresses of the network interfaces and a screenshot showing the `ifconfig` outputs from both devices in a single `tmux` window.
+* There are no additional requirements beyond what is explicitly requested in the Tasks section above.
+
 ### Policies on Using CloudLab Resources
 * Please read and follow Cloudlab's [Acceptable Use Policy](https://www.cloudlab.us/aup.php).
 * CloudLab gives users 16 hours to start with, and users can extend it longer. You can manage your time efficiently and only hold onto those nodes when working on the assignment.

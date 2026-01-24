@@ -1,3 +1,5 @@
+- title: "Overview"
+
 - date: T 01/13
   lecturer:
   title: >
@@ -6,8 +8,8 @@
   video:
   notes:
   readings:
-    - P&D 1.1 and 1.2
-    - K&R 1.1 and 1.3
+    - P&D 1.1, 1.2, and 1.5
+    - K&R 1.1--1.3
   logistics:
     - Assignment 0 is out
 
@@ -19,9 +21,11 @@
   video:
   notes:
   readings:
-    - P&D 1.3 and 1.5
-    - K&R 1.4 and 1.5
+    - P&D 1.3
+    - K&R 1.5
   logistics:
+
+- title: "Application Layer"
 
 - date: T 01/20
   lecturer:
@@ -40,19 +44,33 @@
 - date: Th 01/22
   lecturer:
   title: >
-    <strong>HTTP and the Web</strong>
+    <strong>Web and HTTP</strong>
+  recitation:
+  slides: https://utexas-my.sharepoint.com/:p:/g/personal/kd22637_eid_utexas_edu/IQAcFpVIyWjsSrafYCYHWqbqAeYk3TEL-Y84PHRHUa05KU8?e=U1mIx5 
+  notes:
+  video:
+  readings:
+    - P&D 9.1
+    - K&R 2.2
+  logistics:
+    - Assignment 0 is due
+    - Assignment 1 is out  
+
+
+- date: T 01/27
+  lecturer:
+  title: >
+    <strong>Content Delivery Network (CDN)</strong>
   recitation:
   slides: 
   notes:
   video:
   readings:
-    - P&D 9.1
-    - K&R 2.2 and 2.3
+    - P&D 9.4.3
+    - K&R 2.2.5 and 2.6.3
   logistics:
-    - Assignment 0 is due
-    - Assignment 1 is out  
 
-- date: T 01/27
+- date: Th 01/29
   lecturer:
   title: >
     <strong>Domain Name System (DNS)</strong>
@@ -65,18 +83,7 @@
     - K&R 2.4
   logistics:
 
-- date: Th 01/29
-  lecturer:
-  title: >
-    <strong>Content Delivery Network (CDN)</strong>
-  recitation:
-  slides: 
-  notes:
-  video:
-  readings:
-    - P&D 9.4.3
-    - K&R 2.2.5 and 2.6.3
-  logistics:
+- title: "Transport Layer"
 
 - date: T 02/03
   lecturer:
@@ -133,6 +140,8 @@
   logistics:
     - Assignment 2 is due
     - Assignment 3 is out
+
+- title: "Network Layer"
 
 - date: T 02/17
   lecturer:
@@ -206,7 +215,7 @@
   notes:
   video:
   readings:
-    - <a href="https://p4.org/p4-spec/docs/P4-16-v1.2.4.pdf">P4 language spec</a>
+    - <a href="https://p4.org/wp-content/uploads/sites/53/2024/10/P4-16-spec-v1.2.5.pdf">P4 language spec</a>
     - P&D 3.5
   logistics:
     - Assignment 3 is due
@@ -273,10 +282,11 @@
   notes:
   video:
   readings:
-    - P&D 2.1 - 2.3
-    - K&R 6.1
+    - K&R 4.4, 5.4, and 5.5
   logistics:
     - Assignment 4 is due
+
+- title: "Data Link Layer"
 
 - date: Th 04/02
   lecturer:
@@ -314,8 +324,7 @@
   notes:
   video:
   readings:
-    - P&D 2.7
-    - K&R 7.3
+    - K&R 6.6
   logistics:
 
 - date: T 04/14
@@ -330,6 +339,8 @@
     - P&D 2.7
     - K&R 7.3
   logistics:
+
+- title: "Security"
 
 - date: Th 04/16
   lecturer:
@@ -358,12 +369,6 @@
   logistics:
 
 - date: Th 04/23
-  lecturer:
-  quiz: >
-    <strong>Final Exam Preparation - No Class</strong>
-  logistics:
-
-- date: T 04/27
   lecturer:
   quiz: >
     <strong>Final Exam</strong>

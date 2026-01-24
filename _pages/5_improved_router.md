@@ -1,6 +1,6 @@
 ---
 layout: page
-permalink: /assignments/assignment3
+permalink: /assignments/assignment5
 title: 	"Assignment 5: Supporting ARP, ICMP, RIP in the Router"
 ---
 #### **Released:** 04/07/2026 <br/> **Due:** 04/23/2026
@@ -16,26 +16,26 @@ title: 	"Assignment 5: Supporting ARP, ICMP, RIP in the Router"
     * Make sure to use profile `cs356-base`
     * Make sure to specify your group during instantiation.
 * You should execute `$ bash setup.sh` upon every `$ git clone` and `$ git pull`.
-    * The script will automate updating your change in the `src` directory to the `labs` directory by creating a hard link for each file in `src`. 
+    * The script will automate updating your change in the `src` directory to the `labs` directory by creating a hard link for each file in `src`.
     * Otherwise, you must copy and paste your code whenever you make changes.
-*  Do NOT modify the provided skeleton code other than the commented as `PARTn_TODO` (e.g., `PART1_TODO`). 
+*  Do NOT modify the provided skeleton code other than the commented as `PARTn_TODO` (e.g., `PART1_TODO`).
     * In this assignment, a lot of skeleton code is doing tedious work on your behalf, so you can focus on the core logic.
     * You can just read the comments to understand the skeleton code.
-* Part 3 topology has six routers, so we recommend you use multiple `tmux` windows. 
-    * Other than splitting a window into panes, you can create a new tmux window within a session by typing `Ctrl+b c`. After creating windows, you can navigate the windows using `Ctrl+b p` and `Ctrl_b n`. (Don't forget to pause after Ctrl+b) 
+* Part 3 topology has six routers, so we recommend you use multiple `tmux` windows.
+    * Other than splitting a window into panes, you can create a new tmux window within a session by typing `Ctrl+b c`. After creating windows, you can navigate the windows using `Ctrl+b p` and `Ctrl_b n`. (Don't forget to pause after Ctrl+b)
     * Please refer to [here](https://tmuxcheatsheet.com/) for more details on how to use `tmux`.
 
 ### Part 1: ICMP
 #### Overview
-Your tasks are implementing part of ICMP protocol support on `src/l3_routing.p4`. The tasks are commented as `PART1_TODO` in the p4 file. If you have done the setup correctly, your source code also should appear in the `labs/part1_icmp/shared` directory. The changes on one file will be reflected in the other. The ARP and routing table are static in this part of the assignment. The Kathara lab for this part is located in `labs/part1_icmp`. The virtual network topology is illustrated below.  
-![P1_topology]({{site.baseurl}}/assets/img/assignments/assignment2/P2_topology.png)   
+Your tasks are implementing part of ICMP protocol support on `src/l3_routing.p4`. The tasks are commented as `PART1_TODO` in the p4 file. If you have done the setup correctly, your source code also should appear in the `labs/part1_icmp/shared` directory. The changes on one file will be reflected in the other. The ARP and routing table are static in this part of the assignment. The Kathara lab for this part is located in `labs/part1_icmp`. The virtual network topology is illustrated below.
+![P1_topology]({{site.baseurl}}/assets/img/assignments/assignment2/P2_topology.png)
 #### Tasks
-All the tasks are on the `src/l3_routing.p4` file. 
+All the tasks are on the `src/l3_routing.p4` file.
 <details>
 <summary markdown="span"> **Task 1**: If the arriving IPv4 packet's TTL field is 1, send an ICMP Time Exceeded message to the sender of the packet. </summary>
 
 * First, call `action send_ICMP_error` with type `ICMP_TYPE_TIME_EXCEEDED` (11 or 0x0b) and code `0`.
-* Then modify the source IP address of the packet to the IP address of the ingress port by applying the `icmp_ingress_port_ip` table.   
+* Then modify the source IP address of the packet to the IP address of the ingress port by applying the `icmp_ingress_port_ip` table.
 </details>
 
 <details>
@@ -47,9 +47,9 @@ All the tasks are on the `src/l3_routing.p4` file.
 </details>
 
 #### Test your implementation
-1. Compile the P4 code and launch the P4 and controller program on the routers (`r[1-3]`).  
-* All the necessary commands are provided as script files in the Kathara lab's `shared` directory. 
-* After starting the Kathara lab, compile the P4 code with `$ bash compile_p4.sh` on one of the routers (e.g., `r1`) after `$ cd /shared`. 
+1. Compile the P4 code and launch the P4 and controller program on the routers (`r[1-3]`).
+* All the necessary commands are provided as script files in the Kathara lab's `shared` directory.
+* After starting the Kathara lab, compile the P4 code with `$ bash compile_p4.sh` on one of the routers (e.g., `r1`) after `$ cd /shared`.
 * Then, on each router, launch the compiled P4 program with `$ bash run_router.sh` and the controller with `$ bash r[1-3]_run_controller.sh`.
 2. Test the functionality.
 * For Task 1, try to run `$ traceroute 20.0.0.10` on `h1`. It basically sends packets with small RTTs (incrementing by 1 until the packet reaches the destination) to examine the route to the destination. If you implement it correctly, you should be able to see the route to `20.0.0.10` (`h2`) from `h1`.
@@ -57,55 +57,55 @@ All the tasks are on the `src/l3_routing.p4` file.
 
 ### Part 2: ARP
 #### Overview
-Your tasks are implementing part of ARP protocol support on `src/l3_routing.p4` and `src/controller.py`. The tasks are commented as `PART2_TODO` in the `p4` and `python` files. If you have done the setup correctly, your source code also should appear in the `labs/part2_arp/shared` directory. The changes on one file will be reflected in the other. The routing table is static in this part of the assignment. The Kathara lab for this part is located in `labs/part2_icmp`. The virtual network topology is illustrated below.  
-![P2_topology]({{site.baseurl}}/assets/img/assignments/assignment2/P2_topology.png) 
+Your tasks are implementing part of ARP protocol support on `src/l3_routing.p4` and `src/controller.py`. The tasks are commented as `PART2_TODO` in the `p4` and `python` files. If you have done the setup correctly, your source code also should appear in the `labs/part2_arp/shared` directory. The changes on one file will be reflected in the other. The routing table is static in this part of the assignment. The Kathara lab for this part is located in `labs/part2_icmp`. The virtual network topology is illustrated below.
+![P2_topology]({{site.baseurl}}/assets/img/assignments/assignment2/P2_topology.png)
 
 #### Tasks
-Task 1 is on the `src/l3_routing.p4` file and Task 2 is on the `src/controller.py` file.   
+Task 1 is on the `src/l3_routing.p4` file and Task 2 is on the `src/controller.py` file.
 <details>
 <summary markdown="span"> **Task 1**: Complete the `action send_ARP_response` on the p4 file. </summary>
-* Refer to the skeleton code for detailed instructions. 
-* This action will be invoked upon ARP request on one of the router's network interfaces. 
+* Refer to the skeleton code for detailed instructions.
+* This action will be invoked upon ARP request on one of the router's network interfaces.
 * It changes an incoming ARP request to an ARP reply and sends the reply to who sends the request.
 </details>
 
 <details>
 <summary markdown="span"> **Task 2**: Complete the ARP reply handling on the python file. </summary>
-* Refer to the skeleton code for detailed instructions. 
-* Once the router receives the ARP reply, it forwards the reply to the controller. 
-* Then the controller should install the ARP table and forwarding table using the information in the ARP reply packet. 
-* Your job here is to insert the `arp_table` and `dmac_forward` table entries into the router data plane. 
+* Refer to the skeleton code for detailed instructions.
+* Once the router receives the ARP reply, it forwards the reply to the controller.
+* Then the controller should install the ARP table and forwarding table using the information in the ARP reply packet.
+* Your job here is to insert the `arp_table` and `dmac_forward` table entries into the router data plane.
 * It should be quite similar to what you've done in A2.
 </details>
- 
+
 #### Test your implementation
-1. Compile the P4 code and launch the P4 and controller program on the routers (`r[1-3]`).  
-* All the necessary commands are provided as script files in the Kathara lab's `shared` directory. 
-* After starting the Kathara lab, compile the P4 code with `$ bash compile_p4.sh` on one of the routers (e.g., `r1`) after `$ cd /shared`. 
-* Then, on each router, launch the compiled P4 program with `$ bash run_router.sh` and the controller with `$ bash r[1-3]_run_controller.sh`. 
-2. After implementing both tasks, try running `$ ping 20.0.0.10` on `h1`. It should work, and the ARP request and reply packets should appear along the path. You may check these with `$tcpdump—i any arp` on `r1` and `r2`.  
+1. Compile the P4 code and launch the P4 and controller program on the routers (`r[1-3]`).
+* All the necessary commands are provided as script files in the Kathara lab's `shared` directory.
+* After starting the Kathara lab, compile the P4 code with `$ bash compile_p4.sh` on one of the routers (e.g., `r1`) after `$ cd /shared`.
+* Then, on each router, launch the compiled P4 program with `$ bash run_router.sh` and the controller with `$ bash r[1-3]_run_controller.sh`.
+2. After implementing both tasks, try running `$ ping 20.0.0.10` on `h1`. It should work, and the ARP request and reply packets should appear along the path. You may check these with `$tcpdump—i any arp` on `r1` and `r2`.
 
 ### Part 3: RIP
 #### Overview
-Your tasks are implementing part of RIP protocol support on `src/controller.py`. The tasks are commented as `PART3_TODO` in the `python` file. If you have done the setup correctly, your source code also should appear in the `labs/part3_rip/shared` directory. The changes on one file will be reflected in the other. The routing table is static in this part of the assignment. The Kathara lab for this part is located in `labs/part3_rip`. The virtual network topology is illustrated below.  
+Your tasks are implementing part of RIP protocol support on `src/controller.py`. The tasks are commented as `PART3_TODO` in the `python` file. If you have done the setup correctly, your source code also should appear in the `labs/part3_rip/shared` directory. The changes on one file will be reflected in the other. The routing table is static in this part of the assignment. The Kathara lab for this part is located in `labs/part3_rip`. The virtual network topology is illustrated below.
 ![P3_topology]({{site.baseurl}}/assets/img/assignments/assignment3/P3_topology.png)
 
 #### Tasks
-All the tasks are on the `src/controller.py` file.   
+All the tasks are on the `src/controller.py` file.
 
 <details>
 <summary markdown="span"> **Task 1**: Complete the `mergeRoute` method of the `Route` class. </summary>
 
-* The `Route` class stores routing information (i.e., next hop IP and cost). 
+* The `Route` class stores routing information (i.e., next hop IP and cost).
 * The information would be associated with a certain destination IP address and stored in the `routing_table` dictionary.
-* Refer to the skeleton code for detailed specifications. 
+* Refer to the skeleton code for detailed specifications.
 </details>
 
 <details>
-<summary markdown="span"> **Task 2**: Complete the RIP response handling logic. </summary> 
+<summary markdown="span"> **Task 2**: Complete the RIP response handling logic. </summary>
 
 * Your task is handling the routing table entry updates and installations.
-* Once the router receives an RIP response, it forwards the packet to the controller. 
+* Once the router receives an RIP response, it forwards the packet to the controller.
 * Then, the controller should update or install the routing table entries if the routes in the RIP response are for unknown destinations or known but with cheaper costs.
 * When you build the table entry for `ipv4_route` (a LPM table), use a prefix length of 32 for the `match_fields` parameter of `p4info_helper.buildTableEntry`. In part 3, we don't use the notion of a subnet for simplicity.
 * When you update an existing table entry, specify `is_modify=True` as the parameter of `s1.WriteTableEntry`.
@@ -114,13 +114,13 @@ All the tasks are on the `src/controller.py` file.
 
 #### Test your implementation
 1. Compile the P4 code and launch the P4 and controller program on the routers (`r[1-6]`). You may want to test your program on the subset of the routers to ease debugging.
-* All the necessary commands are provided as script files in the Kathara lab's `shared` directory. 
-* After starting the Kathara lab, compile the P4 code with `$ bash compile_p4.sh` on one of the routers (e.g., `r1`) after `$ cd /shared`. 
-* Then, on each router, launch the compiled P4 program with `$ bash run_router.sh` and the controller with `$ bash r[1-6]_run_controller.sh`. 
+* All the necessary commands are provided as script files in the Kathara lab's `shared` directory.
+* After starting the Kathara lab, compile the P4 code with `$ bash compile_p4.sh` on one of the routers (e.g., `r1`) after `$ cd /shared`.
+* Then, on each router, launch the compiled P4 program with `$ bash run_router.sh` and the controller with `$ bash r[1-6]_run_controller.sh`.
 2. After implementing both tasks, try to ping to `h[2-6]` on `h1`. It should work properly. You may verify the routing table information on each controller's stdout. It will dump the routing table every 10 seconds.
 
 ### Submission
-Please submit your code (modified assignment3 repository) to the Canvas Assignments page in either `tar.gz` or `zip` format.  
+Please submit your code (modified assignment3 repository) to the Canvas Assignments page in either `tar.gz` or `zip` format.
 The naming format for the file is `assign3_groupX.[tar.gz/zip]`.
 
 ### Appendix: Table Insertion API for `controller.py`
