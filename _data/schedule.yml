@@ -76,7 +76,6 @@
     - K&R 2.2.5 and 2.6.3
   logistics:
 
-- title: "Transport Layer"
 
 - date: T 02/03
   lecturer:
@@ -92,6 +91,8 @@
   logistics:
     - Assignment 1 is due
     - Assignment 2 is out
+
+- title: "Transport Layer"
 
 - date: Th 02/05
   lecturer:
@@ -134,7 +135,6 @@
     - Assignment 2 is due
     - Assignment 3 is out
 
-- title: "Network Layer"
 
 - date: T 02/17
   lecturer:
@@ -148,6 +148,8 @@
     - P&D 6.3.2 and 6.3.3
     - K&R 3.7
   logistics:
+
+- title: "Network Layer"
   
 - date: Th 02/19
   lecturer:
