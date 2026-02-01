@@ -9,19 +9,21 @@ title: "Assignment 2: Hierarchical DNS"
 
 ### Part 0: Setup and Overview
 #### Setup
-Please use the `cs356-base` profile on CloudLab to implement and test your code. To get the skeleton code, create a **private** repository by clicking `Use this template> Create a repository` on the [GitHub repository](https://github.com/utcs356/assignment5.git).
+Please use the `cs356-base` profile on CloudLab to implement and test your code. To get the skeleton code, create a **private** repository by clicking `Use this template> Create a repository` on the [GitHub repository](https://github.com/utcs356/assignment2.git).
 
 #### Overview
 In this assignment, you will implement DNS servers that enable a client to access nodes with domains instead of raw IP addresses. Your task is implementing DNS nameservers for the `utexas.edu` zone and `cs.utexas.edu` zone (Part 1) and a local DNS server that can handle the query iteratively (Part 2). We provide you with a DNS library that does tedious jobs like message parsing for you. Refer to the Appendix for more details on the library. For simplicity, you may assume that incoming queries only request `A, AAAA, NS` records.
 
 You will run this experiment on top of Kathara. The Kathara topology is depicted below. The Kathara lab is located in the `[a5_directory]/labs/dns`.
-![a5_topology]({{site.baseurl}}/assets/img/assignments/assignment5/A5_topology.png)
+
+![a2_topology]({{site.baseurl}}/assets/img/assignments/assignment2/A5_topology.png)
 
 ### Part 1: Writing DNS servers
 Your task is to complete `ut-dns.c` and `cs-dns.c` in the `[a5_directory]/labs/dns/shared/src` directory. `ut-dns.c` and `cs-dns.c` are the nameservers for `utexas.edu` and `cs.utexas.edu`, respectively. The implementation of the two servers should be almost the same except for the DNS records they store. We recommend you implement `ut-dns.c` first, copy and paste it to `cs-dns.c`, and change it a bit. Note that they are **NOT** recursive nor iterative DNS servers, so their responses are only based on their own DNS records.
 
 The overview for this part of the assignment is depicted below.
-![a5_p1]({{site.baseurl}}/assets/img/assignments/assignment5/A5_P1.png)
+
+![a2_p1]({{site.baseurl}}/assets/img/assignments/assignment2/A5_P1.png)
 
 #### Specification
 You can find the step-by-step specifications in the starter codes as well.
