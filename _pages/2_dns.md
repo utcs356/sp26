@@ -29,12 +29,27 @@ The overview of part 1 is depicted below.
 ![a2_p1]({{site.baseurl}}/assets/img/assignments/assignment2/A2_P1.png)
 
 #### Specification
-You can find the step-by-step specifications in the starter codes as well.
-* The servers should receive a message on top of UDP. Note that a UDP server doesn't have to `listen()` and `accept()` since it is connectionless, unlike TCP (what we did in A1). Also, the UDP server should use `sendto()`/`recvfrom()` to set/get a client's address and send/receive a message.
-* Initialize a server-wide context (e.g., DNS records) using `TDNSInit()`. The context will be used for future DNS-related operations such as searching for a DNS record.
-* Create a zone using `TDNSCreateZone` and add records to the server `TDNSAddRecord`. You should be able to infer the contents of DNS records from the comments in the source code and the topology figure.
-* Receive a message continuously and parse it using `TDNSParseMsg()`.
-* If the received message is a query for A, AAAA, or NS, find the corresponding record using `TDNSFind()` and return the response. Ignore all the other types.
+
+You can also find detailed step-by-step guidance in the starter code.
+
+* The server must receive DNS messages over **UDP**.
+  Because UDP is connectionless, the server does **not** use `listen()` or `accept()` (unlike in A1 with TCP).
+  Instead, use `sendto()` and `recvfrom()` to obtain the client’s address and to send/receive messages.
+
+* Initialize a server-wide DNS context (e.g., DNS records) using `TDNSInit()`.
+  This context will be used for all subsequent DNS-related operations, such as record lookup.
+
+* Create a DNS zone using `TDNSCreateZone()` and populate it with records using `TDNSAddRecord()`.
+  You can infer the necessary DNS record contents from the comments in the source code and the topology figure.
+
+* Continuously receive incoming DNS messages and parse each one using `TDNSParseMsg()`.
+
+* If the received message is a query for **A**, **AAAA**, or **NS**:
+
+  * Look up the corresponding record using `TDNSFind()`.
+  * Construct and return the appropriate response.
+  * Ignore all other query types.
+
 
 #### Test your implementation
 1. Compile your code with `$ make` in the lab's shared directory (`[a2_directory]/labs/dns/shared`). The compiled binary would be in the `[a2_directory]/labs/dns/shared/bin` directory.
@@ -74,19 +89,58 @@ Your task is to complete `local-dns.c` in the `[a2_directory]/labs/dns/shared/sr
 The figure below is an example of an iterative query resolution possible in our setup.
 ![a2_p2]({{site.baseurl}}/assets/img/assignments/assignment2/A2_P2.png)
 
+
 #### Specification
-You can find the step-by-step specifications in the source code as well.
-* The servers should receive a message on top of UDP.
-* Initialize a server-wide context (e.g., DNS records) using TDNSInit(). The context will be used for future DNS-related operations such as searching for a DNS record.
-* Create a zone using `TDNSCreateZone` and add records to the server `TDNSAddRecord`. You should be able to infer the contents of records from the comments in the source code and the topology figure.
-* Receive a message continuously and parse it using `TDNSParseMsg()`.
-* If the received message is a query for A, AAAA, or NS, find the corresponding record using `TDNSFind()`. Ignore all the other messages.
-    1. If the record is found and the record indicates delegation, send an iterative query to the corresponding nameserver. Note that the server should store a per-query context using `putAddrQID()` and `putNSQID()` for future response handling.
-    2. If the record is found and doesn't indicate delegation, send a response back to the client.
-    3. If the record is not found, send a response back to the client (The library would set the error flag).
-* If the received message is a response and
-    1. If it is an authoritative response (i.e., final response), add the NS information to the response and send it to the original client. Delete a per-query context using `delAddrQID()` and `delNSQID()`. You can retrieve the NS and client address information for the response using `getNSbyQID()` and `getAddrbyQID()`. You can add the NS information to the response using `TDNSPutNStoMessage()`.
-    2. If it is a non-authoritative response (i.e., it indicates delegation), send an iterative query to the corresponding nameserver. You can extract the query from the response using `TDNSGetIterQuery()`. The server should update a per-query context using `putNSQID()`.
+
+You can also find step-by-step guidance in the provided source code (`local-dns.c`).
+
+* The servers must receive DNS messages over **UDP**.
+* Initialize a server-wide DNS context (e.g., DNS records) using `TDNSInit()`.
+  This context will be used for all subsequent DNS operations, including record lookups.
+* Create a DNS zone using `TDNSCreateZone()` and populate it with records using `TDNSAddRecord()`.
+  You can infer the required record contents from the comments in the source code and the topology figure.
+* Continuously receive incoming messages and parse each one using `TDNSParseMsg()`.
+
+**[Handling Queries]**
+
+If the received message is a query for **A**, **AAAA**, or **NS**, process it as follows.
+Ignore all other query types.
+
+1. Look up the requested record using `TDNSFind()`.
+
+2. Depending on the lookup result:
+
+   **a. Record found and indicates delegation**
+
+   * Send an iterative query to the delegated nameserver.
+   * Store per-query context using `putAddrQID()` and `putNSQID()` so the server can properly handle the eventual response.
+
+   **b. Record found and does *not* indicate delegation**
+
+   * Send a direct response back to the client.
+
+   **c. Record not found**
+
+   * Send a response back to the client.
+     (The TDNS library will set the appropriate error flag.)
+
+
+**[Handling Responses]**
+
+If the received message is a **response**, handle it as follows:
+
+1. **Authoritative response (i.e., contains the final answer)**
+
+   * Add the NS information to the response using `TDNSPutNStoMessage()`.
+   * Retrieve the original client address and NS information using `getAddrbyQID()` and `getNSbyQID()`.
+   * Send the completed response back to the client.
+   * Delete the per-query context using `delAddrQID()` and `delNSQID()`.
+
+2. **Non-authoritative response (i.e., a referral to another nameserver)**
+
+   * Extract the next iterative query using `TDNSGetIterQuery()`.
+   * Forward this query to the referred nameserver.
+   * Update the per-query context using `putNSQID()`.
 
 ### Test your implementation
 1. Compile your code with `$ make` in the lab's shared directory (`[a2_directory]/labs/dns/shared`). The compiled binary would be in the `[a2_directory]/labs/dns/shared/bin` directory.
@@ -131,8 +185,8 @@ You can find the step-by-step specifications in the source code as well.
     </details>
 
 ### Submission
-Please submit your code (modified assignment2 repository) to the Canvas Assignments page in either `tar.gz` or `zip` format.
-The naming format for the file is `assign5_groupX.[tar.gz/zip]`.
+Please submit your code (modified assignment2 repository) to the Canvas Assignments page in `tar.gz` format.
+The naming format for the file is `assign5_[firstname]_[lastname].tar.gz`.
 
 ### Appendix: TDNS Library
 The header file is in `[a2_directory]/labs/dns/shared/src/lib/tdns/tdns-c.h`. For the exact usage, refer to the comments and declarations below.
@@ -245,7 +299,6 @@ void getNSbyQID(struct TDNSServerContext* context, uint16_t qid, const char **ns
 void delNSQID(struct TDNSServerContext* context, uint16_t qid);
 
 ```
-
 
 ### Acknowledgements
 The C DNS library used in this assignment was built on top of the `tdns` C++ library from the [`hello-dns`](https://powerdns.org/hello-dns/) project.
