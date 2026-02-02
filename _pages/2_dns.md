@@ -142,7 +142,7 @@ If the received message is a **response**, handle it as follows:
    * Forward this query to the referred nameserver.
    * Update the per-query context using `putNSQID()`.
 
-### Test your implementation
+#### Test your implementation
 1. Compile your code with `$ make` in the lab's shared directory (`[a2_directory]/labs/dns/shared`). The compiled binary would be in the `[a2_directory]/labs/dns/shared/bin` directory.
 2. Run the DNS servers on the corresponding Kathara nodes.
     <details>
