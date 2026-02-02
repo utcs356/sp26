@@ -12,29 +12,32 @@ title: "Assignment 2: Hierarchical DNS"
 Please use the `cs356-base` profile on CloudLab to implement and test your code. To get the skeleton code, create a **private** repository by clicking `Use this template> Create a repository` on the [GitHub repository](https://github.com/utcs356/assignment2.git).
 
 #### Overview
-In this assignment, you will implement DNS servers that enable a client to access nodes with domains instead of raw IP addresses. Your task is implementing DNS nameservers for the `utexas.edu` zone and `cs.utexas.edu` zone (Part 1) and a local DNS server that can handle the query iteratively (Part 2). We provide you with a DNS library that does tedious jobs like message parsing for you. Refer to the Appendix for more details on the library. For simplicity, you may assume that incoming queries only request `A, AAAA, NS` records.
+In this assignment, you will implement DNS servers that enable a client to access nodes with domains instead of raw IP addresses. Your task is implementing DNS nameservers for the `utexas.edu` zone and `cs.utexas.edu` zone (Part 1) and a local DNS server that can handle the query iteratively (Part 2).
 
-You will run this experiment on top of Kathara. The Kathara topology is depicted below. The Kathara lab is located in the `[a5_directory]/labs/dns`.
+You will run this experiment on top of Kathara. The Kathara topology is depicted below. The Kathara lab is located in the `[a2_directory]/labs/dns`.
 
-![a2_topology]({{site.baseurl}}/assets/img/assignments/assignment2/A5_topology.png)
+![a2_topology]({{site.baseurl}}/assets/img/assignments/assignment2/A2_topology.png)
+
+**NOTE**:
+We provide a DNS library (TDNS) that handles low-level tasks such as message parsing. Refer to the Appendix for more details. For simplicity, you may assume that incoming queries request only `A, AAAA, or NS` records.
 
 ### Part 1: Writing DNS servers
-Your task is to complete `ut-dns.c` and `cs-dns.c` in the `[a5_directory]/labs/dns/shared/src` directory. `ut-dns.c` and `cs-dns.c` are the nameservers for `utexas.edu` and `cs.utexas.edu`, respectively. The implementation of the two servers should be almost the same except for the DNS records they store. We recommend you implement `ut-dns.c` first, copy and paste it to `cs-dns.c`, and change it a bit. Note that they are **NOT** recursive nor iterative DNS servers, so their responses are only based on their own DNS records.
+Your task is to complete `ut-dns.c` and `cs-dns.c` in the `[a2_directory]/labs/dns/shared/src` directory. `ut-dns.c` and `cs-dns.c` are the nameservers for `utexas.edu` and `cs.utexas.edu`, respectively. The implementation of the two servers will be nearly identical except for the DNS records they store. We recommend implementing `ut-dns.c` first, then copying it to `cs-dns.c` and making the necessary modifications. Note that these servers are **NOT** recursive or iterative; they respond solely based on the DNS records they hold locally.
 
-The overview for this part of the assignment is depicted below.
+The overview of part 1 is depicted below.
 
-![a2_p1]({{site.baseurl}}/assets/img/assignments/assignment2/A5_P1.png)
+![a2_p1]({{site.baseurl}}/assets/img/assignments/assignment2/A2_P1.png)
 
 #### Specification
 You can find the step-by-step specifications in the starter codes as well.
 * The servers should receive a message on top of UDP. Note that a UDP server doesn't have to `listen()` and `accept()` since it is connectionless, unlike TCP (what we did in A1). Also, the UDP server should use `sendto()`/`recvfrom()` to set/get a client's address and send/receive a message.
-* Initialize a server-wide context (e.g., DNS records) using TDNSInit(). The context will be used for future DNS-related operations such as searching for a DNS record.
+* Initialize a server-wide context (e.g., DNS records) using `TDNSInit()`. The context will be used for future DNS-related operations such as searching for a DNS record.
 * Create a zone using `TDNSCreateZone` and add records to the server `TDNSAddRecord`. You should be able to infer the contents of DNS records from the comments in the source code and the topology figure.
 * Receive a message continuously and parse it using `TDNSParseMsg()`.
 * If the received message is a query for A, AAAA, or NS, find the corresponding record using `TDNSFind()` and return the response. Ignore all the other types.
 
 #### Test your implementation
-1. Compile your code with `$ make` in the lab's shared directory (`[a5_directory]/labs/dns/shared`). The compiled binary would be in the `[a5_directory]/labs/dns/shared/bin` directory.
+1. Compile your code with `$ make` in the lab's shared directory (`[a2_directory]/labs/dns/shared`). The compiled binary would be in the `[a2_directory]/labs/dns/shared/bin` directory.
 2. Run a server on the corresponding Kathara node. Make sure to start an experiment with `$ kathara lstart`.
     <details>
     <summary markdown="span"> Testing `ut-dns.c` </summary>
@@ -67,9 +70,9 @@ You can find the step-by-step specifications in the starter codes as well.
     </details>
 
 ### Part 2: An Iterative Local DNS Server
-Your task is to complete `local-dns.c` in the `[a5_directory]/labs/dns/shared/src` directory. `local-dns.c` is a default nameserver for the on-campus network. Note that it is an iterative DNS server, so its response should always be an answer or an error. If it receives a DNS record that indicates delegation (referral), it should resolve a query iteratively.
+Your task is to complete `local-dns.c` in the `[a2_directory]/labs/dns/shared/src` directory. `local-dns.c` is a default nameserver for the on-campus network. Note that it is an iterative DNS server, so its response should always be an answer or an error. If it receives a DNS record that indicates delegation (referral), it should resolve a query iteratively.
 The figure below is an example of an iterative query resolution possible in our setup.
-![a5_p2]({{site.baseurl}}/assets/img/assignments/assignment5/A5_P2.png)
+![a2_p2]({{site.baseurl}}/assets/img/assignments/assignment2/A2_P2.png)
 
 #### Specification
 You can find the step-by-step specifications in the source code as well.
@@ -86,7 +89,7 @@ You can find the step-by-step specifications in the source code as well.
     2. If it is a non-authoritative response (i.e., it indicates delegation), send an iterative query to the corresponding nameserver. You can extract the query from the response using `TDNSGetIterQuery()`. The server should update a per-query context using `putNSQID()`.
 
 ### Test your implementation
-1. Compile your code with `$ make` in the lab's shared directory (`[a5_directory]/labs/dns/shared`). The compiled binary would be in the `[a5_directory]/labs/dns/shared/bin` directory.
+1. Compile your code with `$ make` in the lab's shared directory (`[a2_directory]/labs/dns/shared`). The compiled binary would be in the `[a2_directory]/labs/dns/shared/bin` directory.
 2. Run the DNS servers on the corresponding Kathara nodes.
     <details>
     <summary markdown="span"> Launch commands </summary>
@@ -128,11 +131,11 @@ You can find the step-by-step specifications in the source code as well.
     </details>
 
 ### Submission
-Please submit your code (modified assignment5 repository) to the Canvas Assignments page in either `tar.gz` or `zip` format.
+Please submit your code (modified assignment2 repository) to the Canvas Assignments page in either `tar.gz` or `zip` format.
 The naming format for the file is `assign5_groupX.[tar.gz/zip]`.
 
 ### Appendix: TDNS Library
-The header file is in `[a5_directory]/labs/dns/shared/src/lib/tdns/tdns-c.h`. For the exact usage, refer to the comments and declarations below.
+The header file is in `[a2_directory]/labs/dns/shared/src/lib/tdns/tdns-c.h`. For the exact usage, refer to the comments and declarations below.
 
 ```c
 /* Macros */
