@@ -168,7 +168,7 @@ For example, if you want to ping to `h4` 10 times, the command is `$ ping -c 10 
 ### Submission
 You must submit:
 * A tarball file of the modified assignment1 directory.
-    * `$ tar -zcvf assignment1 assign1_[firstname]_[lastname].tar.gz`
+    * `$ tar -zcvf assign1_[firstname]_[lastname].tar.gz assignment1`
 * A pdf file contains the Part 1 results and the measurement results for Part 2.
 
 **Report Format**:
