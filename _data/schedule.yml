@@ -16,7 +16,7 @@
 - date: Th 01/15
   lecturer:
   title: >
-    <strong>Network Layers</strong>
+    <strong>Layered Network Architecture</strong>
   slides: https://utexas-my.sharepoint.com/:p:/g/personal/kd22637_eid_utexas_edu/IQDBsOb6cod1S5qOx2D9rfMcAVl4JAXJ1cwWyZLpc61jKv8?e=gePTfu
   video:
   notes:
@@ -112,7 +112,7 @@
   title: >
     <strong>TCP Basics</strong>
   recitation:
-  slides: 
+  slides: https://utexas-my.sharepoint.com/:p:/g/personal/kd22637_eid_utexas_edu/IQDabz1dsvmGT4ShYJsEF1rFAYM2M2cii7vRv2r_GmWSrFk?e=krKiXy
   notes:
   video:
   readings:
