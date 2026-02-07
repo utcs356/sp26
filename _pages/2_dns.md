@@ -49,6 +49,7 @@ You can also find detailed step-by-step guidance in the starter code.
   * Look up the corresponding record using `TDNSFind()`.
   * Construct and return the appropriate response.
   * Ignore all other query types.
+  * If `TDNSFind()` fails, send a response back to the client. (The TDNS library will set the appropriate error flag (e.g., NXDOMAIN).)
 
 
 #### Test your implementation
@@ -299,6 +300,17 @@ void getNSbyQID(struct TDNSServerContext* context, uint16_t qid, const char **ns
 void delNSQID(struct TDNSServerContext* context, uint16_t qid);
 
 ```
+
+### Tips
+
+* When using the TDNS library, you don’t need to manually set DNS error codes (e.g., NXDOMAIN when `TDNSFind()` fails). Simply return the result produced by `TDNSFind()`.
+* Ensure that you correctly convert values when populating socket address fields by using functions like `htons()` and `htonl()` (host-to-network short/long) from `inet.h`. For example:
+
+```
+struct sockaddr_in server_addr;
+server_addr.sin_addr.s_addr = htonl(INADDR_ANY);
+```
+
 
 ### Acknowledgements
 The C DNS library used in this assignment was built on top of the `tdns` C++ library from the [`hello-dns`](https://powerdns.org/hello-dns/) project.
