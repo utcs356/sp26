@@ -177,8 +177,6 @@ If the received message is a **response**, handle it as follows:
 
     `$ dig A www.utexas.edu`
 
-    `$ dig A abc.utexas.edu`
-
     `$ dig A cs.utexas.edu`
 
     `$ dig A aquila.cs.utexas.edu`
