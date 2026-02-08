@@ -72,8 +72,11 @@ You can also find detailed step-by-step guidance in the starter code.
     <summary markdown="span"> Testing `ut-dns.c` </summary>
 
     `$ dig @40.0.0.20 A www.utexas.edu`
+
     `$ dig @40.0.0.20 A thisshouldfail.utexas.edu`
+
     `$ dig @40.0.0.20 A cs.utexas.edu`
+
     `$ dig @40.0.0.20 A aquila.cs.utexas.edu`
     </details>
 
@@ -81,7 +84,9 @@ You can also find detailed step-by-step guidance in the starter code.
     <summary markdown="span"> Testing `cs-dns.c` </summary>
 
     `$ dig @50.0.0.30 A cs.utexas.edu`
+
     `$ dig @50.0.0.30 A aquila.cs.utexas.edu`
+
     `$ dig @50.0.0.30 A thisshouldfail.cs.utexas.edu`
     </details>
 
@@ -169,10 +174,15 @@ If the received message is a **response**, handle it as follows:
     <summary markdown="span"> `dig` commands </summary>
 
     `$ dig A ns.utexas.edu`
+
     `$ dig A www.utexas.edu`
+
     `$ dig A abc.utexas.edu`
+
     `$ dig A cs.utexas.edu`
+
     `$ dig A aquila.cs.utexas.edu`
+
     `$ dig A abc.utexas.edu`
     </details>
 
@@ -181,7 +191,9 @@ If the received message is a **response**, handle it as follows:
     <summary markdown="span"> `ping` commands </summary>
 
     The `-n` flag is necessary since the servers ignore a reverse query (PTR).
+
     `$ ping -n www.utexas.edu`
+
     `$ ping -n aquila.cs.utexas.edu`
     </details>
 
