@@ -26,7 +26,7 @@ We recommend using the `cs356-base` profile on CloudLab for implementation and t
   ```
   * Clone our assignment repo:
   ```bash
-  git clone git@github.com:utcs356/assignment4.git
+  git clone git@github.com:utcs356/assignment3.git
   ```
 
 2. Install Dependencies
@@ -211,7 +211,7 @@ When implementing congestion control:
 
 **TCP Reno Congestion Control**
 
-![TCP Reno Congestion Control State Diagram]({{site.baseurl}}/assets/img/assignments/assignment4/tcp_reno.png)
+![TCP Reno Congestion Control State Diagram]({{site.baseurl}}/assets/img/assignments/assignment3/tcp_reno.png)
 The figure above shows the full TCP Reno congestion control state diagram.
 *(Extracted from* **Computer Networking: A Top-Down Approach (7th Edition)** *by Kurose and Ross.)*
 
@@ -389,7 +389,7 @@ cd /shared
 
 Then, `graph.png` will be generated. An example is shown in the following figure.
 
-![Congesting Window Size Over Time]({{site.baseurl}}/assets/img/assignments/assignment4/congestion_window.png)
+![Congesting Window Size Over Time]({{site.baseurl}}/assets/img/assignments/assignment3/congestion_window.png)
 
 You will be able to observe the number of packets increase since congestion window grows when `client` successfully sends data.
 
@@ -403,7 +403,7 @@ Use `tcset` to apply new configurations, as shown in the above examples:
 
 ### Submission
 
-Please submit your **code** (assignment4 repository) and **report** on Canvas.
+Please submit your **code** (assignment3 repository) and **report** on Canvas.
 The naming format for the code and report is `assign4_groupX.[tar.gz/zip]` and `assign4_groupX.pdf` respectively.
 
 ### Grading
