@@ -187,7 +187,9 @@ If the received message is a **response**, handle it as follows:
 
 ### Submission
 Please submit your code (modified assignment2 repository) to the Canvas Assignments page in `tar.gz` format.
-The naming format for the file is `assign5_[firstname]_[lastname].tar.gz`.
+The naming format for the file is `assign2_[firstname]_[lastname].tar.gz`.
+
+No report is required for this assignment.
 
 ### Appendix: TDNS Library
 The header file is in `[a2_directory]/labs/dns/shared/src/lib/tdns/tdns-c.h`. For the exact usage, refer to the comments and declarations below.
