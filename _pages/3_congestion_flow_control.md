@@ -367,6 +367,8 @@ cmp -l tests/random.input tests/random.output
 
 ### Report
 
+#### How to run in Kathara
+
 After implementing UT-TCP, you will conduct a small experiment to observe how congestion control affects data transmission.
 
 In Kathara environments, run the following commands to obtain graphs showing the number of packets over time:
@@ -400,16 +402,90 @@ This will generate `[CONG_WIN_LOG_PATH]_graph.png`. An example is shown in the f
 
 ![Congestion Window Size Over Time]({{site.baseurl}}/assets/img/assignments/assignment3/congestion_window.png)
 
-You will be able to observe the number of packets increase as the congestion window grows when the client successfully sends data.
+You will be able to observe how the congestion window changes over time under intermittent packet losses.
 
-**In your report, provide the generated figures for the following configurations and describe the results for each scenario.**
+#### Deliverable
 
-Use `tcset` to apply new configurations, as shown in the examples above:
+In your report: (1) include the generated figures and describe the results for each scenario, and (2) discuss possible ways to improve TCP Reno.
 
-  * without any configuration (`tcdel --device eth0`)
-  * `--loss 0.1%`
-  * `--delay 100ms`
-  * `--rate 500Kbps`
+When describinb results, focus on:
+* How the congestion window changes compared to Scenario 1 (e.g., growth rate, saw-tooth behavior)
+
+* Overall performance (e.g., total time required to send the entire file)
+
+**Scenario1**: without any congestion (`tcdel --device eth0`)
+```bash
+# Server
+dd if=/dev/urandom of=tests/random.input bs=1k count=10000
+tcdel --device eth0
+UT_TCP_ADDR=10.1.1.3 UT_TCP_PORT=8000 UT_TCP_FILE_SIZE=10240000 ./server
+```
+
+```bash
+# Client
+tcdel --device eth0
+time UT_TCP_ADDR=10.1.1.3 UT_TCP_PORT=8000 UT_TCP_FILE_SIZE=10240000 CONG_WIN_LOG_PATH=cong_win_scenario1.csv ./client
+```
+
+**Scenario2**: Intermittent loss (`loss rate = 0.1%`)
+```bash
+# Server
+dd if=/dev/urandom of=tests/random.input bs=1k count=10000
+tcset eth0 --loss 0.1% --overwrite
+UT_TCP_ADDR=10.1.1.3 UT_TCP_PORT=8000 UT_TCP_FILE_SIZE=10240000 ./server
+```
+
+```bash
+# Client
+tcset eth0 --loss 0.1% --overwrite
+time UT_TCP_ADDR=10.1.1.3 UT_TCP_PORT=8000 UT_TCP_FILE_SIZE=10240000 CONG_WIN_LOG_PATH=cong_win_scenario2.csv ./client
+```
+
+**Scenario3**: High RTT (`delay = 100ms`)
+```bash
+# Server
+dd if=/dev/urandom of=tests/random.input bs=1k count=10000
+tcset eth0 --loss 0.1% --overwrite
+UT_TCP_ADDR=10.1.1.3 UT_TCP_PORT=8000 UT_TCP_FILE_SIZE=10240000 ./server
+```
+
+```bash
+# Client
+tcset eth0 --loss 0.1% --overwrite
+time UT_TCP_ADDR=10.1.1.3 UT_TCP_PORT=8000 UT_TCP_FILE_SIZE=10240000 CONG_WIN_LOG_PATH=cong_win_scenario2.csv ./client
+```
+
+**Scenario4**: Slow network (`bandwidth = 100Kbps`)
+```bash
+# Server
+dd if=/dev/urandom of=tests/random.input bs=1k count=10000
+tcset eth0 --rate 100Kbps --overwrite
+UT_TCP_ADDR=10.1.1.3 UT_TCP_PORT=8000 UT_TCP_FILE_SIZE=10240000 ./server
+```
+
+```bash
+# Client
+tcset eth0 --rate 100Kbps --overwrite
+time UT_TCP_ADDR=10.1.1.3 UT_TCP_PORT=8000 UT_TCP_FILE_SIZE=10240000 CONG_WIN_LOG_PATH=cong_win_scenario4.csv ./client
+```
+
+**Scenario5**: Mid-flow congestion
+```bash
+# Server
+dd if=/dev/urandom of=tests/random.input bs=1k count=10000
+tcdel --device eth0
+UT_TCP_ADDR=10.1.1.3 UT_TCP_PORT=8000 UT_TCP_FILE_SIZE=10240000 ./server
+```
+
+```bash
+# Client
+tcdel --device eth0
+time UT_TCP_ADDR=10.1.1.3 UT_TCP_PORT=8000 UT_TCP_FILE_SIZE=10240000 CONG_WIN_LOG_PATH=cong_win_scenario5.csv ./client & sleep 3 && tcset eth0 --rate 10Kbps --overwrite && sleep 3 && tcdel --device eth0
+```
+
+**How to improve TCP Reno**:
+Discuss potential enhancements to TCP Reno. You may consider different network scenarios (e.g., bursty traffic, heterogeneous workload patterns) and reason about how modifying the congestion window behavior could improve throughput, fairness, or responsiveness. Focusing on a single limitation of Reno and proposing one concrete improvement is sufficient.
+
 
 ### Submission
 
@@ -437,6 +513,9 @@ cmp -l tests/random.input tests/random.output | head -n 1
 ```
 
 The output displays three columns: the byte number, the value in file 1, and the value in file 2.
+
+**Initial Sequence Number (ISN)**: When debugging, it can be helpful to set ISN = 0.
+The ISN is initialized in `ut_tcp.c:ut_socket()` by setting `sock->send_win.last_ack`.
 
 ### Acknowledgement
 
