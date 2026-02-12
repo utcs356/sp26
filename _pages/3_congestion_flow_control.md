@@ -312,17 +312,29 @@ Be sure to update the `UT_TCP_FILE_SIZE` environment variable accordingly whenev
 
 **Python Unit Test**
 
-We provide testing tools using Python's `unittest` framework to manipulate packets and validate the behavior of the server and client.
+We provide testing tools based on Python’s `unittest` framework to manipulate packets and verify the behavior of your server and client implementations.
+Please note that passing all the provided Python tests does not guarantee a full score; additional grading test cases will not be shared.
 
-Example test cases are in `tests/test_ack_packets.py`, and sample server/client implementations are located in `tests/testing_[client/server].c`.
-You are welcome to modify or add test cases as needed.
 
-To run the Python tests, use the following command:
+1. To run all Python tests, use:
 
 ```bash
 make clean && make
 make test
 ```
+
+Test results will be written to `results.json`.
+
+
+2. To run a specific test case, use:
+```bash
+# From the root directory of the assignment
+cd support/execs && SUBMISSION_DIR=../.. make all && cd ../../tests
+python3 -m pytest -s test_listener_handshake.py::TestCases::test_initiator_syn # Modify the file name and test case as needed
+```
+
+When running tests individually, remember that a green "pass" does not guarantee full credit.
+Always review the log messages to ensure no underlying errors remain.
 
 **Kathara Experiments**
 
@@ -484,7 +496,8 @@ time UT_TCP_ADDR=10.1.1.3 UT_TCP_PORT=8000 UT_TCP_FILE_SIZE=10240000 CONG_WIN_LO
 ```
 
 **How to improve TCP Reno**:
-Discuss potential enhancements to TCP Reno. You may consider different network scenarios (e.g., bursty traffic, heterogeneous workload patterns) and reason about how modifying the congestion window behavior could improve throughput, fairness, or responsiveness. Focusing on a single limitation of Reno and proposing one concrete improvement is sufficient.
+Discuss potential enhancements to TCP Reno. You may consider different network scenarios (e.g., bursty traffic, heterogeneous workload patterns) and reason about how modifying the congestion window behavior could improve throughput, fairness, or responsiveness.
+Focusing on a single limitation of Reno and proposing one concrete improvement is sufficient.
 
 
 ### Submission
