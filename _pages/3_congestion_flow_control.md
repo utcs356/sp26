@@ -375,42 +375,41 @@ In Kathara environments, run the following commands to obtain graphs showing the
 # H1
 kathara connect h1
 cd /shared
-dd if=/dev/urandom of=tests/random.input bs=1K count=256  # Create a random file
-tcset eth0 --delay 50ms --overwrite  # Add packet delays for better visualization
-./utils/capture_packets.sh start capture.pcap
-UT_TCP_ADDR=10.1.1.3 UT_TCP_PORT=8000 UT_TCP_FILE_SIZE=262144 ./server
-./utils/capture_packets.sh stop capture.pcap
+dd if=/dev/urandom of=tests/random.input count=1000  # Create a random file
+# tcset eth0 --delay 50ms --overwrite
+UT_TCP_ADDR=10.1.1.3 UT_TCP_PORT=8000 UT_TCP_FILE_SIZE=512000 ./server
 ```
 
 ```bash
 # H2
 kathara connect h2
 cd /shared
-tcset eth0 --delay 50ms --overwrite  # Add packet delays for better visualization
-UT_TCP_ADDR=10.1.1.3 UT_TCP_PORT=8000 UT_TCP_FILE_SIZE=262144 ./client
+# tcset eth0 --loss 0.1% --overwrite
+UT_TCP_ADDR=10.1.1.3 UT_TCP_PORT=8000 UT_TCP_FILE_SIZE=512000 CONG_WIN_LOG_PATH=cong_win.csv ./client
 ```
 
-After capturing packets, run the following command to visualize the number of packets over time:
+After logging congestion windows, run the following command to visualize congestion window changes over time:
 
 ```bash
 # Either H1 or H2
 cd /shared
-./gen_graph.py
+CONG_WIN_LOG_PATH=cong_win.csv python plot_cong_wind.py
 ```
 
-This will generate `graph.png`. An example is shown in the following figure.
+This will generate `[CONG_WIN_LOG_PATH]_graph.png`. An example is shown in the following figure.
 
 ![Congestion Window Size Over Time]({{site.baseurl}}/assets/img/assignments/assignment3/congestion_window.png)
 
 You will be able to observe the number of packets increase as the congestion window grows when the client successfully sends data.
 
-In your report, provide the generated figures for the following configurations and describe the results when increasing latency or reducing bandwidth.
+**In your report, provide the generated figures for the following configurations and describe the results for each scenario.**
+
 Use `tcset` to apply new configurations, as shown in the examples above:
 
+  * without any configuration (`tcdel --device eth0`)
+  * `--loss 0.1%`
   * `--delay 100ms`
-  * `--delay 200ms`
-  * `--delay 100ms --rate 500Kbps`
-  * `--delay 100ms --rate 200Kbps`
+  * `--rate 500Kbps`
 
 ### Submission
 
