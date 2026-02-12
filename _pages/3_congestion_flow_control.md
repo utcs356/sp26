@@ -396,7 +396,7 @@ cd /shared
 CONG_WIN_LOG_PATH=cong_win.csv python plot_cong_wind.py
 ```
 
-This will generate `[CONG_WIN_LOG_PATH]_graph.png`. An example is shown in the following figure.
+This will generate `[CONG_WIN_LOG_PATH]_graph.png`. An example is shown in the following figure (with loss 0.1%).
 
 ![Congestion Window Size Over Time]({{site.baseurl}}/assets/img/assignments/assignment3/congestion_window.png)
 
