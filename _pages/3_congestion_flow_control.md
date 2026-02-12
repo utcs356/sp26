@@ -14,15 +14,16 @@ In this assignment, you will implement the transport layer of a network stack.
 Your implementation must ensure reliable packet transmission, even in the presence of packet corruption and loss.
 To achieve efficient communication, you will also implement sliding window, flow control, and congestion control mechanisms.
 
+We **strongly recommend** starting the assignment early.
+
 ### Environment Setup
 
 We recommend using the `cs356-base` profile on CloudLab for implementation and testing.
 
 1. Obtain the Skeleton Code
 
-* For this assignment, the assignment repository is private.
-Please access the repository using the following method:
-  * Download the SSH private key from `Canvas > Assignments > Assignment4` description
+* For this assignment, the assignment repo is in private. Please access our repo using the following method:
+  * Download our ssh private key from `Canvas > Assignments > Assignment3` description
   * Add the private key to your SSH agent:
   ```bash
   ssh-add <PRIVATE KEY PATH>
@@ -280,6 +281,7 @@ make clean && make
 
 ```bash
 # A terminal for server
+dd if=/dev/urandom of=tests/random.input bs=1K count=10
 UT_TCP_ADDR=127.0.0.1 UT_TCP_PORT=8000 UT_TCP_FILE_SIZE=10240 ./server
 ```
 
@@ -293,17 +295,19 @@ You can check the correctness of data transmission using the following command.
 We expect no output to appear; the command will print messages when the files are different.
 
 ```bash
-diff tests/random.input tests/random.output
+cmp -l tests/random.input tests/random.output
 ```
 
 To test with different file sizes, you can create random files with the following command and replace `tests/random.input`:
 
 ```bash
-# Creates a file with 10 blocks of 1KB each (a 10KB file)
-dd if=/dev/urandom of=tests/random.input bs=1K count=10
+# Creates a file with 100 blocks of 1KB each (a 100KB file)
+dd if=/dev/urandom of=tests/random.input bs=1K count=100
+# Check file size in bytes
+stat --format=%s tests/random.input
 ```
 
-For grading, we will limit our test cases to file sizes up to 50KB.
+For grading, we will limit our test cases to file sizes up to 50MB.
 Be sure to update the `UT_TCP_FILE_SIZE` environment variable accordingly whenever you change the test file.
 
 **Python Unit Test**
@@ -358,10 +362,8 @@ Similarly, you can check the correctness of data transmission using the followin
 We expect no output to appear; the command will print messages when the files are different.
 
 ```bash
-diff tests/random.input tests/random.output
+cmp -l tests/random.input tests/random.output
 ```
-
-**Note:** If you encounter errors while running the Kathara experiments, check issue #247 in the Ed discussion for potential solutions.
 
 ### Report
 
@@ -413,7 +415,7 @@ Use `tcset` to apply new configurations, as shown in the examples above:
 ### Submission
 
 Please submit your **code** (assignment3 repository) and **report** on Canvas.
-The naming format for the code is `assign4_groupX.[tar.gz/zip]` and for the report is `assign4_groupX.pdf`.
+The naming format for the code is `assign3_[firstname]_[lastname].tar.gz` and for the report is `assign3_[firstname]_[lastname].pdf`.
 
 ### Grading
 
@@ -425,6 +427,17 @@ Your implementation will be automatically graded based on the following criteria
   * Flow Control
   * Congestion Control
   * End-to-End Test Cases (e.g., reliable file transfer under packet loss)
+
+
+### Tips
+
+**Locating the First Discrepancy**: To identify the position of the first byte mismatch between the two files, run the following command.
+
+```bash
+cmp -l tests/random.input tests/random.output | head -n 1
+```
+
+The output displays three columns: the byte number, the value in file 1, and the value in file 2.
 
 ### Acknowledgement
 
