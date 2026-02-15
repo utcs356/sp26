@@ -123,7 +123,7 @@
 - date: Th 02/12
   lecturer:
   title: >
-    <strong>Flow and Congestion Control</strong>
+    <strong>Flow and Congestion Control (1)</strong>
   recitation:
   slides: https://utexas-my.sharepoint.com/:p:/g/personal/kd22637_eid_utexas_edu/IQDnL-MHueO8RqdmukgEjlGAAZNc7YK2TwpPOl5lW3mUeAo?e=FfTx7o
   notes:
@@ -139,7 +139,7 @@
 - date: T 02/17
   lecturer:
   title: >
-    <strong>Congestion Control (2)</strong>
+    <strong>More on Congestion Control</strong>
   recitation:
   slides: 
   notes:
@@ -152,7 +152,7 @@
 - date: Th 02/19
   lecturer:
   title: >
-    <strong>Congestion Control (3)</strong>
+    <strong>TCP Performance Model</strong>
   recitation:
   slides: 
   notes:
