@@ -14,15 +14,16 @@ In this assignment, you will implement the transport layer of a network stack.
 Your implementation must ensure reliable packet transmission, even in the presence of packet corruption and loss.
 To achieve efficient communication, you will also implement sliding window, flow control, and congestion control mechanisms.
 
+We **strongly recommend** starting the assignment early.
+
 ### Environment Setup
 
 We recommend using the `cs356-base` profile on CloudLab for implementation and testing.
 
 1. Obtain the Skeleton Code
 
-* For this assignment, the assignment repository is private.
-Please access the repository using the following method:
-  * Download the SSH private key from `Canvas > Assignments > Assignment4` description
+* For this assignment, the assignment repo is in private. Please access our repo using the following method:
+  * Download our ssh private key from `Canvas > Assignments > Assignment3` description
   * Add the private key to your SSH agent:
   ```bash
   ssh-add <PRIVATE KEY PATH>
@@ -280,6 +281,7 @@ make clean && make
 
 ```bash
 # A terminal for server
+dd if=/dev/urandom of=tests/random.input bs=1K count=10
 UT_TCP_ADDR=127.0.0.1 UT_TCP_PORT=8000 UT_TCP_FILE_SIZE=10240 ./server
 ```
 
@@ -293,32 +295,46 @@ You can check the correctness of data transmission using the following command.
 We expect no output to appear; the command will print messages when the files are different.
 
 ```bash
-diff tests/random.input tests/random.output
+cmp -l tests/random.input tests/random.output
 ```
 
 To test with different file sizes, you can create random files with the following command and replace `tests/random.input`:
 
 ```bash
-# Creates a file with 10 blocks of 1KB each (a 10KB file)
-dd if=/dev/urandom of=tests/random.input bs=1K count=10
+# Creates a file with 100 blocks of 1KB each (a 100KB file)
+dd if=/dev/urandom of=tests/random.input bs=1K count=100
+# Check file size in bytes
+stat --format=%s tests/random.input
 ```
 
-For grading, we will limit our test cases to file sizes up to 50KB.
+For grading, we will limit our test cases to file sizes up to 50MB.
 Be sure to update the `UT_TCP_FILE_SIZE` environment variable accordingly whenever you change the test file.
 
 **Python Unit Test**
 
-We provide testing tools using Python's `unittest` framework to manipulate packets and validate the behavior of the server and client.
+We provide testing tools based on Python’s `unittest` framework to manipulate packets and verify the behavior of your server and client implementations.
+Please note that passing all the provided Python tests does not guarantee a full score; additional grading test cases will not be shared.
 
-Example test cases are in `tests/test_ack_packets.py`, and sample server/client implementations are located in `tests/testing_[client/server].c`.
-You are welcome to modify or add test cases as needed.
 
-To run the Python tests, use the following command:
+1. To run all Python tests, use:
 
 ```bash
 make clean && make
 make test
 ```
+
+Test results will be written to `results.json`.
+
+
+2. To run a specific test case, use:
+```bash
+# From the root directory of the assignment
+cd support/execs && SUBMISSION_DIR=../.. make all && cd ../../tests
+python3 -m pytest -s test_listener_handshake.py::TestCases::test_initiator_syn # Modify the file name and test case as needed
+```
+
+When running tests individually, remember that a green "pass" does not guarantee full credit.
+Always review the log messages to ensure no underlying errors remain.
 
 **Kathara Experiments**
 
@@ -358,12 +374,12 @@ Similarly, you can check the correctness of data transmission using the followin
 We expect no output to appear; the command will print messages when the files are different.
 
 ```bash
-diff tests/random.input tests/random.output
+cmp -l tests/random.input tests/random.output
 ```
 
-**Note:** If you encounter errors while running the Kathara experiments, check issue #247 in the Ed discussion for potential solutions.
-
 ### Report
+
+#### How to run in Kathara
 
 After implementing UT-TCP, you will conduct a small experiment to observe how congestion control affects data transmission.
 
@@ -373,47 +389,121 @@ In Kathara environments, run the following commands to obtain graphs showing the
 # H1
 kathara connect h1
 cd /shared
-dd if=/dev/urandom of=tests/random.input bs=1K count=256  # Create a random file
-tcset eth0 --delay 50ms --overwrite  # Add packet delays for better visualization
-./utils/capture_packets.sh start capture.pcap
-UT_TCP_ADDR=10.1.1.3 UT_TCP_PORT=8000 UT_TCP_FILE_SIZE=262144 ./server
-./utils/capture_packets.sh stop capture.pcap
+dd if=/dev/urandom of=tests/random.input count=1000  # Create a random file
+# tcset eth0 --delay 50ms --overwrite
+UT_TCP_ADDR=10.1.1.3 UT_TCP_PORT=8000 UT_TCP_FILE_SIZE=512000 ./server
 ```
 
 ```bash
 # H2
 kathara connect h2
 cd /shared
-tcset eth0 --delay 50ms --overwrite  # Add packet delays for better visualization
-UT_TCP_ADDR=10.1.1.3 UT_TCP_PORT=8000 UT_TCP_FILE_SIZE=262144 ./client
+# tcset eth0 --loss 0.1% --overwrite
+UT_TCP_ADDR=10.1.1.3 UT_TCP_PORT=8000 UT_TCP_FILE_SIZE=512000 CONG_WIN_LOG_PATH=cong_win.csv ./client
 ```
 
-After capturing packets, run the following command to visualize the number of packets over time:
+After logging congestion windows, run the following command to visualize congestion window changes over time:
 
 ```bash
 # Either H1 or H2
 cd /shared
-./gen_graph.py
+CONG_WIN_LOG_PATH=cong_win.csv python plot_cong_wind.py
 ```
 
-This will generate `graph.png`. An example is shown in the following figure.
+This will generate `[CONG_WIN_LOG_PATH]_graph.png`. An example is shown in the following figure (with loss 0.1%).
 
 ![Congestion Window Size Over Time]({{site.baseurl}}/assets/img/assignments/assignment3/congestion_window.png)
 
-You will be able to observe the number of packets increase as the congestion window grows when the client successfully sends data.
+You will be able to observe how the congestion window changes over time under intermittent packet losses.
 
-In your report, provide the generated figures for the following configurations and describe the results when increasing latency or reducing bandwidth.
-Use `tcset` to apply new configurations, as shown in the examples above:
+#### Deliverable
 
-  * `--delay 100ms`
-  * `--delay 200ms`
-  * `--delay 100ms --rate 500Kbps`
-  * `--delay 100ms --rate 200Kbps`
+In your report: (1) include the generated figures and describe the results for each scenario, and (2) discuss possible ways to improve TCP Reno.
+
+When describinb results, focus on:
+* How the congestion window changes compared to Scenario 1 (e.g., growth rate, saw-tooth behavior)
+
+* Overall performance (e.g., total time required to send the entire file)
+
+**Scenario1**: without any congestion (`tcdel --device eth0`)
+```bash
+# Server
+dd if=/dev/urandom of=tests/random.input bs=1k count=10000
+tcdel --device eth0
+UT_TCP_ADDR=10.1.1.3 UT_TCP_PORT=8000 UT_TCP_FILE_SIZE=10240000 ./server
+```
+
+```bash
+# Client
+tcdel --device eth0
+time UT_TCP_ADDR=10.1.1.3 UT_TCP_PORT=8000 UT_TCP_FILE_SIZE=10240000 CONG_WIN_LOG_PATH=cong_win_scenario1.csv ./client
+```
+
+**Scenario2**: Intermittent loss (`loss rate = 0.1%`)
+```bash
+# Server
+dd if=/dev/urandom of=tests/random.input bs=1k count=10000
+tcset eth0 --loss 0.1% --overwrite
+UT_TCP_ADDR=10.1.1.3 UT_TCP_PORT=8000 UT_TCP_FILE_SIZE=10240000 ./server
+```
+
+```bash
+# Client
+tcset eth0 --loss 0.1% --overwrite
+time UT_TCP_ADDR=10.1.1.3 UT_TCP_PORT=8000 UT_TCP_FILE_SIZE=10240000 CONG_WIN_LOG_PATH=cong_win_scenario2.csv ./client
+```
+
+**Scenario3**: High RTT (`delay = 100ms`)
+```bash
+# Server
+dd if=/dev/urandom of=tests/random.input bs=1k count=10000
+tcset eth0 --loss 0.1% --overwrite
+UT_TCP_ADDR=10.1.1.3 UT_TCP_PORT=8000 UT_TCP_FILE_SIZE=10240000 ./server
+```
+
+```bash
+# Client
+tcset eth0 --loss 0.1% --overwrite
+time UT_TCP_ADDR=10.1.1.3 UT_TCP_PORT=8000 UT_TCP_FILE_SIZE=10240000 CONG_WIN_LOG_PATH=cong_win_scenario2.csv ./client
+```
+
+**Scenario4**: Slow network (`bandwidth = 100Kbps`)
+```bash
+# Server
+dd if=/dev/urandom of=tests/random.input bs=1k count=10000
+tcset eth0 --rate 100Kbps --overwrite
+UT_TCP_ADDR=10.1.1.3 UT_TCP_PORT=8000 UT_TCP_FILE_SIZE=10240000 ./server
+```
+
+```bash
+# Client
+tcset eth0 --rate 100Kbps --overwrite
+time UT_TCP_ADDR=10.1.1.3 UT_TCP_PORT=8000 UT_TCP_FILE_SIZE=10240000 CONG_WIN_LOG_PATH=cong_win_scenario4.csv ./client
+```
+
+**Scenario5**: Mid-flow congestion
+```bash
+# Server
+dd if=/dev/urandom of=tests/random.input bs=1k count=10000
+tcdel --device eth0
+UT_TCP_ADDR=10.1.1.3 UT_TCP_PORT=8000 UT_TCP_FILE_SIZE=10240000 ./server
+```
+
+```bash
+# Client
+tcdel --device eth0
+time UT_TCP_ADDR=10.1.1.3 UT_TCP_PORT=8000 UT_TCP_FILE_SIZE=10240000 CONG_WIN_LOG_PATH=cong_win_scenario5.csv ./client & sleep 3 && tcset eth0 --rate 10Kbps --overwrite && sleep 3 && tcdel --device eth0
+```
+
+**How to improve TCP Reno**:
+Discuss potential enhancements to TCP Reno. You may consider different network scenarios (e.g., bursty traffic, heterogeneous workload patterns) and reason about how modifying the congestion window behavior could improve throughput, fairness, or responsiveness.
+Focusing on a single limitation of Reno and proposing one concrete improvement is sufficient.
+
 
 ### Submission
 
 Please submit your **code** (assignment3 repository) and **report** on Canvas.
-The naming format for the code is `assign4_groupX.[tar.gz/zip]` and for the report is `assign4_groupX.pdf`.
+The naming format for the code is `assign3_[firstname]_[lastname].tar.gz` and for the report is `assign3_[firstname]_[lastname].pdf`.
 
 ### Grading
 
@@ -425,6 +515,20 @@ Your implementation will be automatically graded based on the following criteria
   * Flow Control
   * Congestion Control
   * End-to-End Test Cases (e.g., reliable file transfer under packet loss)
+
+
+### Tips
+
+**Locating the First Discrepancy**: To identify the position of the first byte mismatch between the two files, run the following command.
+
+```bash
+cmp -l tests/random.input tests/random.output | head -n 1
+```
+
+The output displays three columns: the byte number, the value in file 1, and the value in file 2.
+
+**Initial Sequence Number (ISN)**: When debugging, it can be helpful to set ISN = 0.
+The ISN is initialized in `ut_tcp.c:ut_socket()` by setting `sock->send_win.last_ack`.
 
 ### Acknowledgement
 
