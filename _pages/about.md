@@ -35,7 +35,7 @@ Relevant chapters will be indicated in the course schedule.
 Throughout the semester, we will cover the following key topics:
 
 * Network layers and programming
-* Application layer protocols (HTTP, DNS, content distribution networks)
+* Application layer protocols (HTTP, DNS, content delivery networks)
 * Transport layer protocols (TCP, flow control, and congestion control)
 * Network layer and Internet Protocol (IP)
 * Routing protocols (intra-domain, inter-domain, and BGP)
