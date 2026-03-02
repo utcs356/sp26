@@ -464,7 +464,7 @@ UT_TCP_ADDR=10.1.1.3 UT_TCP_PORT=8000 UT_TCP_FILE_SIZE=10240000 ./server
 ```bash
 # Client
 tcset eth0 --delay 100ms --overwrite
-time UT_TCP_ADDR=10.1.1.3 UT_TCP_PORT=8000 UT_TCP_FILE_SIZE=10240000 CONG_WIN_LOG_PATH=cong_win_scenario2.csv ./client
+time UT_TCP_ADDR=10.1.1.3 UT_TCP_PORT=8000 UT_TCP_FILE_SIZE=10240000 CONG_WIN_LOG_PATH=cong_win_scenario3.csv ./client
 ```
 
 **Scenario4**: Slow network (`bandwidth = 100Kbps`)
