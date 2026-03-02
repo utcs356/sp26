@@ -457,13 +457,13 @@ time UT_TCP_ADDR=10.1.1.3 UT_TCP_PORT=8000 UT_TCP_FILE_SIZE=10240000 CONG_WIN_LO
 ```bash
 # Server
 dd if=/dev/urandom of=tests/random.input bs=1k count=10000
-tcset eth0 --loss 0.1% --overwrite
+tcset eth0 --delay 100ms --overwrite
 UT_TCP_ADDR=10.1.1.3 UT_TCP_PORT=8000 UT_TCP_FILE_SIZE=10240000 ./server
 ```
 
 ```bash
 # Client
-tcset eth0 --loss 0.1% --overwrite
+tcset eth0 --delay 100ms --overwrite
 time UT_TCP_ADDR=10.1.1.3 UT_TCP_PORT=8000 UT_TCP_FILE_SIZE=10240000 CONG_WIN_LOG_PATH=cong_win_scenario2.csv ./client
 ```
 
