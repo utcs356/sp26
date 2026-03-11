@@ -16,7 +16,7 @@ Your task is to implement a basic switch and router using P4 for the data plane 
 
 #### Setup
 **Clone the skeleton code to your private repository.**
-* To obtain the skeleton code, create a **private** repository by selecting `Use this template> Create a repository` on the [GitHub repository](https://github.com/utcs356/assignment2.git) page.
+* To obtain the skeleton code, create a **private** repository by selecting `Use this template> Create a repository` on the [GitHub repository](https://github.com/utcs356/assignment4.git) page.
 * Don't forget to select `Private` while creating the repository.
 
 **Note**: You should instantiate your experiment in the same way in A0 and A1.
@@ -33,8 +33,8 @@ If you cannot see the `Group` options yet, please contact TA through Ed or email
 
 ### Part 1: Switching with P4
 #### Overview
-In this part of the assignment, you will implement a software switch with P4. Kathara lab for this part is located in `assignment2/labs/star_four_hosts`. The skeleton codes are located in the `assignment2/labs/star_four_hosts/shared`. The virtual network topology is illustrated below.
-![P1_topology]({{site.baseurl}}/assets/img/assignments/assignment2/P1_topology.png)
+In this part of the assignment, you will implement a software switch with P4. Kathara lab for this part is located in `assignment4/labs/star_four_hosts`. The skeleton codes are located in the `assignment4/labs/star_four_hosts/shared`. The virtual network topology is illustrated below.
+![P1_topology]({{site.baseurl}}/assets/img/assignments/assignment4/P1_topology.png)
 Your task is to complete `l2_basic_forwarding.p4` and `controller.py` to make the switch `s1` work so that `h[1-4]` can talk to each other.
 
 #### Specification
@@ -97,8 +97,8 @@ Your task is to complete `l2_basic_forwarding.p4` and `controller.py` to make th
 
 ### Part 2: Router with P4
 #### Overview
-In this part of the assignment, you will implement a static software router with P4. Since it's static, it routes a packet based on a given routing information. Kathara lab for this part is located in `assignment2/labs/three_routers_three_hosts`. The skeleton codes are located in the `assignment2/labs/three_routers_three_hosts/shared`. The virtual network topology is illustrated below.
-![P2_topology]({{site.baseurl}}/assets/img/assignments/assignment2/P2_topology.png)
+In this part of the assignment, you will implement a static software router with P4. Since it's static, it routes a packet based on a given routing information. Kathara lab for this part is located in `assignment4/labs/three_routers_three_hosts`. The skeleton codes are located in the `assignment4/labs/three_routers_three_hosts/shared`. The virtual network topology is illustrated below.
+![P2_topology]({{site.baseurl}}/assets/img/assignments/assignment4/P2_topology.png)
 
 Your task is to complete `l3_static_routing.p4` and `controller.py` to make the routers `r[1-3]` work so that hosts in different local networks can talk to each other.
 #### Specification
@@ -233,8 +233,8 @@ Your task is to complete `l3_static_routing.p4` and `controller.py` to make the 
 * To verify IPv4 checksum and check the TTL field, add the `-v` flag to the `tcpdump` command (e.g., `tcpdump -v -i any`).
 
 ### Submission
-Please submit your code (modified assignment2 repository) to the Canvas Assignments page in either `tar.gz` or `zip` format.
-The naming format for the file is `assign2_groupX.[tar.gz/zip]`.
+Please submit your code (modified assignment4 repository) to the Canvas Assignments page in `tar.gz` format.
+The naming format for the file is `assign4_[firstname]_[lastname].tar.gz`.
 
 ### Appendix: Table Insertion API for `controller.py`
 1. Create a table entry you want to insert.
