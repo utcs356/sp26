@@ -1,10 +1,10 @@
 ---
 layout: page
 permalink: /assignments/assignment4
-title: "Assignment 4: Software Switch and Router with P4"
+title: "Assignment 4: Software Router with P4"
 ---
 
-#### **Released:** 03/10/2026 <br/> **Due:** 03/31/2026
+#### **Released:** 03/10/2026 <br/> **Due:** 04/07/2026
 {: .no_toc}
 
 * (The list will be replaced with the table of contents.)
@@ -12,17 +12,15 @@ title: "Assignment 4: Software Switch and Router with P4"
 
 ### Part 0: Overview and Setup
 #### Overview
-Your task is to implement a basic switch and router using P4 for the data plane and Python for the control plane.
+Your task is to implement a basic static router using P4 for the data plane and Python for the control plane.
 
 #### Setup
 **Clone the skeleton code to your private repository.**
 * To obtain the skeleton code, create a **private** repository by selecting `Use this template> Create a repository` on the [GitHub repository](https://github.com/utcs356/assignment4.git) page.
 * Don't forget to select `Private` while creating the repository.
 
-**Note**: You should instantiate your experiment in the same way in A0 and A1.
+**Note**: You should instantiate your experiment in the same way in previous assignments.
 * Make sure to use profile `cs356-base`
-* Make sure to specify your group during instantiation.
-If you cannot see the `Group` options yet, please contact TA through Ed or email.
 
 **Note**: Don't forget to execute below for every CloudLab experiment instantiation.
 * After ssh to the reserved node, type the commands below.
@@ -31,71 +29,8 @@ If you cannot see the `Group` options yet, please contact TA through Ed or email
 
 **Note**: **You should save changes you make to your private GitHub repo.** Otherwise, you will lose the changes when your CloudLab experiment ends.
 
-### Part 1: Switching with P4
-#### Overview
-In this part of the assignment, you will implement a software switch with P4. Kathara lab for this part is located in `assignment4/labs/star_four_hosts`. The skeleton codes are located in the `assignment4/labs/star_four_hosts/shared`. The virtual network topology is illustrated below.
-![P1_topology]({{site.baseurl}}/assets/img/assignments/assignment4/P1_topology.png)
-Your task is to complete `l2_basic_forwarding.p4` and `controller.py` to make the switch `s1` work so that `h[1-4]` can talk to each other.
 
-#### Specification
-1. Parse the ethernet header.
-    * P4 task: Complete the definition of `header ethernet_t`.
-        <details>
-        <summary markdown="span">Task specificaiton</summary>
-
-        * The parser is already implemented, and your job is to define an ethernet header format, `header ethernet_t`.
-        * You don't have to include a 64-bit preamble to the header format definition as it's part of physical layer.
-        </details>
-
-2. Implement forwarding.
-    * P4 task: Complete the definition of `table dmac_forward`.
-        <details>
-        <summary markdown="span"> Task specification</summary>
-
-        * Check whether the destination MAC address has a MAC-to-port mapping
-        * Upon hit, forward the packet to the retrieved port using `action forward_to_port()`.
-        * Upon miss, broadcast the packet using `action broadcast()`.
-        </details>
-
-3. Implement MAC learning. MAC-to-port mapping should expire after 15 seconds from the last packet arrival from the interface.
-
-    * P4 task: Complete the definition of `table smac_table`.
-        <details>
-        <summary markdown="span">Task specification</summary>
-
-        * Check whether the source MAC address of the packet has a MAC-to-port mapping.
-        * Upon hit, do nothing (`NoAction()`).
-        * Upon miss, send the MAC-to-port mapping to the controller (`learn()`).
-            * Define a MAC learning digest message format, `struct mac_learn_digest_t`. It should contain the 48-bit source MAC address and 9-bit ingress port of the packet.
-            * Complete the `action learn()` by initializing the MAC learning digest message.
-        </details>
-    * Controller task: Install table entries for the tables when a digest message arrives. Set a 15-second timeout for each entry.
-        <details>
-        <summary markdown="span"> Task specification </summary>
-
-        * **Table entry insertion API is provided. Please refer to the Appendix for details.**
-        * `smac_table`: Install a table entry with the MAC address as a key. `NoAction()` as an action.
-        * `dmac_forward`: Install a table entry with the MAC address as a key, `forward_to_port()` as an action, and `egress_port` as an action parameter.
-        </details>
-
-#### Test your implementation
-1.  Compile the P4 code and launch the P4 and controller program on the switch (`s1`).
-* All the necessary commands are provided as script files in the Kathara lab's `shared` directory.
-* After starting the Kathara lab, compile the P4 code with `$ bash compile_p4.sh` on `s1`. For example:
-    ```bash
-    # under `star_four_hosts/` directory
-    kathara connect s1
-    cd /shared && bash compile_p4.sh
-    ```
-* Then launch the compiled P4 program with `$ bash run_switch.sh` and the controller with `$ bash run_controller.sh` on `s1`. Both scripts are located in the `shared` directory.
-
-2. Test the functionality.
-* You may use `ping` to check whether your switch works as expected on a host (`h[1-4]`).
-* Once you implement forwarding, the packet should arrive at each host in the local network except the sender for every ping.
-* Once you implement MAC learning, the packet should arrive at each host in the local network except the sender until the table insertion is done. Then, the packet must arrive only at the destination host until the table entry expires. In other words, if the broadcasting behavior disappears after some time, you have implemented MAC learning properly.
-* To check if the packet arrives at a host, use `tcpdump -i <interface>` (e.g., `tcpdump -i eth0`) to sniff the packet on the host's interface. The interface name can be retrieved by using `ifconfig`. For more details, refer to [man tcpdump](https://www.tcpdump.org/manpages/tcpdump.1.html). Use `tcpdump -i any` to sniff packets from all interfaces.
-
-### Part 2: Router with P4
+### Part 1: Router with P4
 #### Overview
 In this part of the assignment, you will implement a static software router with P4. Since it's static, it routes a packet based on a given routing information. Kathara lab for this part is located in `assignment4/labs/three_routers_three_hosts`. The skeleton codes are located in the `assignment4/labs/three_routers_three_hosts/shared`. The virtual network topology is illustrated below.
 ![P2_topology]({{site.baseurl}}/assets/img/assignments/assignment4/P2_topology.png)
@@ -257,14 +192,14 @@ The naming format for the file is `assign4_[firstname]_[lastname].tar.gz`.
     To set a timeout, you should change the attribute, `idle_timeout_ns`, of the table entry as below in integer and the unit of nanoseconds.
     `table_entry.idle_timeout_ns = int(1 * 1e9) # timeout is 1 second`
 
-    For more details, refer to the file, `assignment2/labs/star_four_hosts/shared/utils/p4runtime_lib/helper.py`.
+    For more details, refer to the file, `assignment4/labs/star_four_hosts/shared/utils/p4runtime_lib/helper.py`.
 
 2. Send a table entry to the switch.
     The `Bmv2SwitchConnection` object, `s1`, is provided and initialized. The object is the abstraction of a connection between the switch and the controller.
     To add a table entry you built in the above step, you can simply call the `WriteTableEntry` method of the `Bmv2SwitchConnectoin` object with `table_entry` as a parameter. (e.g., `s1.WriteTableEntry(table_entry)`)
 
 #### Usage example
-Say there's a `l2_simple_switch.p4`, and it defines a table in the ingress control block as below.
+Say there's a `simple_switch.p4`, and it defines a table in the ingress control block as below.
 ```p4
 ...
 control MyIngress() {
@@ -282,7 +217,7 @@ control MyIngress() {
     ...
 }
 ```
-When you compile this program, the compiler will create `l2_simple_switch.p4info.txt`. The P4info file contains a human-readable name to an instance id (integer) mapping. You can retrieve the arguments for the `buildTableEntry` method from here. Below is the example code snippet from the controller code used in the in-class demo.
+When you compile this program, the compiler will create `simple_switch.p4info.txt`. The P4info file contains a human-readable name to an instance id (integer) mapping. You can retrieve the arguments for the `buildTableEntry` method from here. Below is the example code snippet from the controller code used in the in-class demo.
 ```
 mac_to_port = {"00:00:0a:00:00:01":1,
             "00:00:0a:00:00:02":2,
