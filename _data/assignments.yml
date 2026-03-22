@@ -27,9 +27,3 @@
   number: 4
   title: >
     Software Router with P4
-
-- release_date: 04/07/2026
-  due_date: 04/23/2026
-  number: 5
-  title: >
-    Supporting ARP and ICMP in the Router
