@@ -251,7 +251,7 @@
 - date: T 03/24
   lecturer:
   title: >
-    <strong>Inter-Domain Routing</strong>
+    <strong>Inter-Domain Routing and Border Gateway Protocol (BGP)</strong>
   recitation:
   slides: https://utexas-my.sharepoint.com/:p:/g/personal/kd22637_eid_utexas_edu/IQA37Xd0QufRTLEjrkT-8lQhAcxboUKGyuJcucxh85DiVEo?e=usrsCM
   notes:
@@ -264,7 +264,7 @@
 - date: Th 03/26
   lecturer:
   title: >
-    <strong>Border Gateway Protocol (BGP)</strong>
+    <strong>Border Gateway Protocol (BGP) cont'd</strong>
   recitation:
   slides:
   notes:
@@ -274,21 +274,9 @@
     - K&R 5.4
   logistics:
 
-- date: T 03/31
-  lecturer:
-  title: >
-    <strong>BGP (Cont'd)</strong>
-  recitation:
-  slides:
-  notes:
-  video:
-  readings:
-    - P&D 4.1
-    - K&R 5.1
-
 - title: "Data Link Layer"
 
-- date: Th 04/02
+- date: T 03/31
   lecturer:
   title: >
     <strong>Data Link Layer</strong>
@@ -301,7 +289,7 @@
     - K&R 6.1
   logistics:
 
-- date: T 04/07
+- date: Th 04/02
   lecturer:
   title: >
     <strong>Switched LAN</strong>
@@ -316,7 +304,7 @@
     - Assignment 5 is out
     - Assignment 4 is due
 
-- date: Th 04/09
+- date: T 04/07
   lecturer:
   title: >
     <strong>Data Center Networks</strong>
@@ -328,7 +316,7 @@
     - K&R 6.6
   logistics:
 
-- date: T 04/14
+- date: Th 04/09
   lecturer:
   title: >
     <strong>Wireless Networks</strong>
@@ -343,7 +331,7 @@
 
 - title: "Security"
 
-- date: Th 04/16
+- date: T 04/14
   lecturer:
   title: >
     <strong>Network Security (1)</strong>
@@ -356,7 +344,7 @@
     - K&R 8.1--8.2
   logistics:
 
-- date: T 04/21
+- date: Th 04/16
   lecturer:
   title: >
     <strong>Network Security (2)</strong>
@@ -367,6 +355,12 @@
   readings:
     - P&D 8.3--8.5 (8.5.3 and 8.5.6)
     - K&R 8.3--8.4 and 8.9
+  logistics:
+
+- date: T 04/21
+  lecturer:
+  quiz: >
+    <strong>Study Day - No Class</strong>
   logistics:
 
 - date: Th 04/23
