@@ -281,12 +281,12 @@
   title: >
     <strong>Data Link Layer</strong>
   recitation:
-  slides:
+  slides: https://utexas-my.sharepoint.com/:p:/g/personal/kd22637_eid_utexas_edu/IQC25iKdRmdKSbennr7pCgNqAVs5SEfQomxdrlp89iXzhG0?e=hVH6yp
   notes:
   video:
   readings:
-    - P&D 2.1 - 2.3
-    - K&R 6.1
+    - P&D 2.1 - 2.3 and 2.6
+    - K&R 6.1 and 6.3
   logistics:
 
 - date: Th 04/02
@@ -301,8 +301,6 @@
     - P&D 2.4 - 2.5 and 3.1 - 3.2
     - K&R 6.2.3 and 6.4
   logistics:
-    - Assignment 5 is out
-    - Assignment 4 is due
 
 - date: T 04/07
   lecturer:
@@ -315,6 +313,8 @@
   readings:
     - K&R 6.6
   logistics:
+    - Assignment 4 is due
+    - Assignment 5 is out
 
 - date: Th 04/09
   lecturer:
@@ -368,3 +368,4 @@
   quiz: >
     <strong>Final Exam</strong>
   logistics:
+    - Assignment 5 is due
