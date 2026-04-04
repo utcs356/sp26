@@ -305,20 +305,6 @@
 - date: T 04/07
   lecturer:
   title: >
-    <strong>Data Center Networks</strong>
-  recitation:
-  slides:
-  notes:
-  video:
-  readings:
-    - K&R 6.6
-  logistics:
-    - Assignment 4 is due
-    - Assignment 5 is out
-
-- date: Th 04/09
-  lecturer:
-  title: >
     <strong>Wireless Networks</strong>
   recitation:
   slides:
@@ -327,6 +313,20 @@
   readings:
     - P&D 2.7
     - K&R 7.3
+  logistics:
+    - Assignment 4 is due
+    - Assignment 5 is out
+
+- date: Th 04/09
+  lecturer:
+  title: >
+    <strong>Data Center Networks</strong>
+  recitation:
+  slides:
+  notes:
+  video:
+  readings:
+    - K&R 6.6
   logistics:
 
 - title: "Security"
