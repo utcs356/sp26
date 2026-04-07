@@ -21,14 +21,14 @@ title: 	"Assignment 5: Supporting ARP and ICMP in the Router"
 *  Do NOT modify the provided skeleton code other than the commented as `PARTn_TODO` (e.g., `PART1_TODO`).
     * In this assignment, a lot of skeleton code is doing tedious work on your behalf, so you can focus on the core logic.
     * You can just read the comments to understand the skeleton code.
-* Part 3 topology has six routers, so we recommend you use multiple `tmux` windows.
+* We recommend using separate `tmux` windows to manage terminals for multiple routers.
     * Other than splitting a window into panes, you can create a new tmux window within a session by typing `Ctrl+b c`. After creating windows, you can navigate the windows using `Ctrl+b p` and `Ctrl_b n`. (Don't forget to pause after Ctrl+b)
     * Please refer to [here](https://tmuxcheatsheet.com/) for more details on how to use `tmux`.
 
 ### Part 1: ICMP
 #### Overview
 Your tasks are implementing part of ICMP protocol support on `src/l3_routing.p4`. The tasks are commented as `PART1_TODO` in the p4 file. If you have done the setup correctly, your source code also should appear in the `labs/part1_icmp/shared` directory. The changes on one file will be reflected in the other. The ARP and routing table are static in this part of the assignment. The Kathara lab for this part is located in `labs/part1_icmp`. The virtual network topology is illustrated below.
-![P1_topology]({{site.baseurl}}/assets/img/assignments/assignment2/P2_topology.png)
+![P1_topology]({{site.baseurl}}/assets/img/assignments/assignment5/P2_topology.png)
 #### Tasks
 All the tasks are on the `src/l3_routing.p4` file.
 <details>
@@ -58,7 +58,7 @@ All the tasks are on the `src/l3_routing.p4` file.
 ### Part 2: ARP
 #### Overview
 Your tasks are implementing part of ARP protocol support on `src/l3_routing.p4` and `src/controller.py`. The tasks are commented as `PART2_TODO` in the `p4` and `python` files. If you have done the setup correctly, your source code also should appear in the `labs/part2_arp/shared` directory. The changes on one file will be reflected in the other. The routing table is static in this part of the assignment. The Kathara lab for this part is located in `labs/part2_icmp`. The virtual network topology is illustrated below.
-![P2_topology]({{site.baseurl}}/assets/img/assignments/assignment2/P2_topology.png)
+![P2_topology]({{site.baseurl}}/assets/img/assignments/assignment5/P2_topology.png)
 
 #### Tasks
 Task 1 is on the `src/l3_routing.p4` file and Task 2 is on the `src/controller.py` file.
