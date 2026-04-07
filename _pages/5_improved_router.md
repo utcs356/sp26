@@ -28,7 +28,7 @@ title: 	"Assignment 5: Supporting ARP and ICMP in the Router"
 ### Part 1: ICMP
 #### Overview
 Your tasks are implementing part of ICMP protocol support on `src/l3_routing.p4`. The tasks are commented as `PART1_TODO` in the p4 file. If you have done the setup correctly, your source code also should appear in the `labs/part1_icmp/shared` directory. The changes on one file will be reflected in the other. The ARP and routing table are static in this part of the assignment. The Kathara lab for this part is located in `labs/part1_icmp`. The virtual network topology is illustrated below.
-![P1_topology]({{site.baseurl}}/assets/img/assignments/assignment5/P2_topology.png)
+![P1_topology]({{site.baseurl}}/assets/img/assignments/assignment4/P2_topology.png)
 #### Tasks
 All the tasks are on the `src/l3_routing.p4` file.
 <details>
@@ -58,7 +58,7 @@ All the tasks are on the `src/l3_routing.p4` file.
 ### Part 2: ARP
 #### Overview
 Your tasks are implementing part of ARP protocol support on `src/l3_routing.p4` and `src/controller.py`. The tasks are commented as `PART2_TODO` in the `p4` and `python` files. If you have done the setup correctly, your source code also should appear in the `labs/part2_arp/shared` directory. The changes on one file will be reflected in the other. The routing table is static in this part of the assignment. The Kathara lab for this part is located in `labs/part2_icmp`. The virtual network topology is illustrated below.
-![P2_topology]({{site.baseurl}}/assets/img/assignments/assignment5/P2_topology.png)
+![P2_topology]({{site.baseurl}}/assets/img/assignments/assignment4/P2_topology.png)
 
 #### Tasks
 Task 1 is on the `src/l3_routing.p4` file and Task 2 is on the `src/controller.py` file.
