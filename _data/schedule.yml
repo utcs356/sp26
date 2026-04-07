@@ -307,7 +307,7 @@
   title: >
     <strong>Wireless Networks</strong>
   recitation:
-  slides:
+  slides: https://utexas-my.sharepoint.com/:p:/g/personal/kd22637_eid_utexas_edu/IQDs2wBYH4S3T7tpW3jrrjlqAYsGyPIheIFpZs4amh8egIU?e=lvaAdD
   notes:
   video:
   readings:
@@ -317,10 +317,12 @@
     - Assignment 4 is due
     - Assignment 5 is out
 
+- title: "Other Important Topics"
+
 - date: Th 04/09
   lecturer:
   title: >
-    <strong>Data Center Networks</strong>
+    <strong>Datacenter Networks</strong>
   recitation:
   slides:
   notes:
@@ -329,7 +331,6 @@
     - K&R 6.6
   logistics:
 
-- title: "Security"
 
 - date: T 04/14
   lecturer:
