@@ -1,7 +1,7 @@
 ---
 layout: page
 permalink: /assignments/assignment5
-title: 	"Assignment 5: Supporting ARP, ICMP, RIP in the Router"
+title: 	"Assignment 5: Supporting ARP and ICMP in the Router"
 ---
 #### **Released:** 04/07/2026 <br/> **Due:** 04/23/2026
 {: .no_toc}
@@ -10,7 +10,7 @@ title: 	"Assignment 5: Supporting ARP, ICMP, RIP in the Router"
 
 ### Part 0: Setup
 * Clone the skeleton code to your private repository.
-    * To obtain the skeleton code, create a **private** repository by selecting `Use this template> Create a repository` on the [GitHub repository](https://github.com/utcs356/assignment3.git) page.
+    * To obtain the skeleton code, create a **private** repository by selecting `Use this template> Create a repository` on the [GitHub repository](https://github.com/utcs356/assignment5.git) page.
     * Don't forget to select `Private` while creating the repository.
 * You should instantiate your experiment in the same way as the previous assignments.
     * Make sure to use profile `cs356-base`
@@ -85,43 +85,9 @@ Task 1 is on the `src/l3_routing.p4` file and Task 2 is on the `src/controller.p
 * Then, on each router, launch the compiled P4 program with `$ bash run_router.sh` and the controller with `$ bash r[1-3]_run_controller.sh`.
 2. After implementing both tasks, try running `$ ping 20.0.0.10` on `h1`. It should work, and the ARP request and reply packets should appear along the path. You may check these with `$tcpdump—i any arp` on `r1` and `r2`.
 
-### Part 3: RIP
-#### Overview
-Your tasks are implementing part of RIP protocol support on `src/controller.py`. The tasks are commented as `PART3_TODO` in the `python` file. If you have done the setup correctly, your source code also should appear in the `labs/part3_rip/shared` directory. The changes on one file will be reflected in the other. The routing table is static in this part of the assignment. The Kathara lab for this part is located in `labs/part3_rip`. The virtual network topology is illustrated below.
-![P3_topology]({{site.baseurl}}/assets/img/assignments/assignment3/P3_topology.png)
-
-#### Tasks
-All the tasks are on the `src/controller.py` file.
-
-<details>
-<summary markdown="span"> **Task 1**: Complete the `mergeRoute` method of the `Route` class. </summary>
-
-* The `Route` class stores routing information (i.e., next hop IP and cost).
-* The information would be associated with a certain destination IP address and stored in the `routing_table` dictionary.
-* Refer to the skeleton code for detailed specifications.
-</details>
-
-<details>
-<summary markdown="span"> **Task 2**: Complete the RIP response handling logic. </summary>
-
-* Your task is handling the routing table entry updates and installations.
-* Once the router receives an RIP response, it forwards the packet to the controller.
-* Then, the controller should update or install the routing table entries if the routes in the RIP response are for unknown destinations or known but with cheaper costs.
-* When you build the table entry for `ipv4_route` (a LPM table), use a prefix length of 32 for the `match_fields` parameter of `p4info_helper.buildTableEntry`. In part 3, we don't use the notion of a subnet for simplicity.
-* When you update an existing table entry, specify `is_modify=True` as the parameter of `s1.WriteTableEntry`.
-* Refer to the skeleton code for more detailed specifications.
-</details>
-
-#### Test your implementation
-1. Compile the P4 code and launch the P4 and controller program on the routers (`r[1-6]`). You may want to test your program on the subset of the routers to ease debugging.
-* All the necessary commands are provided as script files in the Kathara lab's `shared` directory.
-* After starting the Kathara lab, compile the P4 code with `$ bash compile_p4.sh` on one of the routers (e.g., `r1`) after `$ cd /shared`.
-* Then, on each router, launch the compiled P4 program with `$ bash run_router.sh` and the controller with `$ bash r[1-6]_run_controller.sh`.
-2. After implementing both tasks, try to ping to `h[2-6]` on `h1`. It should work properly. You may verify the routing table information on each controller's stdout. It will dump the routing table every 10 seconds.
-
 ### Submission
-Please submit your code (modified assignment3 repository) to the Canvas Assignments page in either `tar.gz` or `zip` format.
-The naming format for the file is `assign3_groupX.[tar.gz/zip]`.
+Please submit your code (modified assignment5 repository) to the Canvas Assignments page in `tar.gz` format.
+The naming format for the file is `assign5_[firstname]_[lastname].tar.gz`.
 
 ### Appendix: Table Insertion API for `controller.py`
 1. Create a table entry you want to insert.
@@ -144,7 +110,7 @@ The naming format for the file is `assign3_groupX.[tar.gz/zip]`.
     To set a timeout, you should change the attribute, `idle_timeout_ns`, of the table entry as below in integer and the unit of nanoseconds.
     `table_entry.idle_timeout_ns = int(1 * 1e9) # timeout is 1 second`
 
-    For more details, refer to the file, `assignment2/labs/star_four_hosts/shared/utils/p4runtime_lib/helper.py`.
+    For more details, refer to the file, `assignment4/labs/star_four_hosts/shared/utils/p4runtime_lib/helper.py`.
 
 2. Send a table entry to the switch.
     The `Bmv2SwitchConnection` object, `s1`, is provided and initialized. The object is the abstraction of a connection between the switch and the controller.
