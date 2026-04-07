@@ -317,22 +317,9 @@
     - Assignment 4 is due
     - Assignment 5 is out
 
-- title: "Other Important Topics"
+- title: "Security"
 
 - date: Th 04/09
-  lecturer:
-  title: >
-    <strong>Datacenter Networks</strong>
-  recitation:
-  slides:
-  notes:
-  video:
-  readings:
-    - K&R 6.6
-  logistics:
-
-
-- date: T 04/14
   lecturer:
   title: >
     <strong>Network Security (1)</strong>
@@ -345,7 +332,8 @@
     - K&R 8.1--8.2
   logistics:
 
-- date: Th 04/16
+
+- date: T 04/14
   lecturer:
   title: >
     <strong>Network Security (2)</strong>
@@ -356,6 +344,19 @@
   readings:
     - P&D 8.3--8.5 (8.5.3 and 8.5.6)
     - K&R 8.3--8.4 and 8.9
+  logistics:
+
+- title: "Wrap-Up and Review"
+
+- date: Th 04/16
+  lecturer:
+  title: >
+    <strong>Putting Pieces Together</strong>
+  recitation:
+  slides:
+  notes:
+  video:
+  readings:
   logistics:
 
 - date: T 04/21
