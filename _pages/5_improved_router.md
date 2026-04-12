@@ -52,7 +52,7 @@ All the tasks are on the `src/l3_routing.p4` file.
 * After starting the Kathara lab, compile the P4 code with `$ bash compile_p4.sh` on one of the routers (e.g., `r1`) after `$ cd /shared`.
 * Then, on each router, launch the compiled P4 program with `$ bash run_router.sh` and the controller with `$ bash r[1-3]_run_controller.sh`.
 2. Test the functionality.
-* For Task 1, try to run `$ traceroute 20.0.0.10` on `h1`. It basically sends packets with small RTTs (incrementing by 1 until the packet reaches the destination) to examine the route to the destination. If you implement it correctly, you should be able to see the route to `20.0.0.10` (`h2`) from `h1`.
+* For Task 1, try to run `$ traceroute 20.0.0.10` on `h1`. It basically sends packets with small TTL values (incrementing by 1 until the packet reaches the destination) to examine the route to the destination. If you implement it correctly, you should be able to see the route to `20.0.0.10` (`h2`) from `h1`.
 * For Task 2, try to run `$ ping 10.0.0.1` on `h1` (i.e., ping to `r1`). It should work properly if you implement Task 2 correctly. Also, try to run `$ wget 10.0.0.1` on `h1`. It will try to send a TCP packet to `r1` and should return an error immediately.
 
 ### Part 2: ARP
